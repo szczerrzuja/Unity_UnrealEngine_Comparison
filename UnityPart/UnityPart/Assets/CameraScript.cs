@@ -23,7 +23,6 @@ public class CameraScript : MonoBehaviour
         while(data[0] == '#')
         {
             data = dataStream.ReadLine();
-            continue;
         }
         //skipp data description column
         data = dataStream.ReadLine();
@@ -37,9 +36,6 @@ public class CameraScript : MonoBehaviour
         float.Parse(values[9], System.Globalization.CultureInfo.InvariantCulture),float.Parse(values[8], System.Globalization.CultureInfo.InvariantCulture));
         //next point on path of camera
         LoadNextPoint();
-        
-        currentPoint = new Vector3(0.0f, 0.0f, 0.0f);
-        cameraRotationVariable = new Vector3(0.0f, 0.0f, 0.0f);
         CameraRB.velocity = (currentPoint-transform.position).normalized * currentVelocity;
     }
 
@@ -95,7 +91,7 @@ public class CameraScript : MonoBehaviour
         }
     }
     void RotateCameraTowards(){
-        Vector3 direction = (currentPoint-transform.position).normalized;
+        Vector3 direction = (cameraRotationVariable-transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
     }
     void OnApplicationQuit()

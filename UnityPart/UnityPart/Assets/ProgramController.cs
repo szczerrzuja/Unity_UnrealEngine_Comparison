@@ -124,7 +124,7 @@ public class ProgramController : MonoBehaviour
         //to read header
         string data = stream.ReadLine();
         int var_for_limiter = 0;
-        int maxModels = 4000, points = 23571;
+        int maxModels = 4000, points = 23570;
         int skipsPerLoad = Convert.ToInt32(Math.Floor((float)points/(float)maxModels));
         /*
         k = multiply by 1000
@@ -134,7 +134,7 @@ public class ProgramController : MonoBehaviour
         500?
         */
 
-        while(!stream.EndOfStream && var_for_limiter <=maxModels)
+        while(!stream.EndOfStream && var_for_limiter <maxModels)
         {
             for(int i = 0; i<skipsPerLoad && !stream.EndOfStream;i++)
             {
@@ -160,6 +160,7 @@ public class ProgramController : MonoBehaviour
             newGameObject.gameObject.GetComponent<MannequinScript>().SetAnimatorAnimation(int.Parse(values[11], System.Globalization.CultureInfo.InvariantCulture), 
             float.Parse(values[11], System.Globalization.CultureInfo.InvariantCulture));
         }
+
         stream.Close();
     }
     void OnApplicationQuit()
