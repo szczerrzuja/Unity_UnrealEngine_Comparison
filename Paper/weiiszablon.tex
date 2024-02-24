@@ -59,7 +59,31 @@
 1 $\div$ 2 stron wykaz ważniejszych symboli i oznaczeń (jeśli jest potrzebny).
 \clearpage
 
-\section{Wstęp/wprowadzenie}
+\section{Cel pracy}
+
+Tematem pracy jest porównanie silników Unreal Engine i Unity pod kątem tworzenia
+gier.  W tym celu należy wskazać różnice w budowie silnika. Zostaną wskazane
+różnice w pisaniu skryptów – użyte języki programowania i inne narzędzia –
+różnice w architekturze silników oraz różnice związane z kolejnością wykonywania
+metod i funkcji. 
+
+
+Ważnym elementem gier jest stabilność stworzonej aplikacji oraz ilość zasobów
+wymaganych do prawidłowego funkcjonowania gry. W tym celu zostanie
+przeprowadzony test polegający na rozłożeniu w silniku kilku tysięcy kopii
+jednej postaci i poruszaniu się kamery po ustalonej wcześniej ścieżce przez
+kilkadziesiąt minut. Kopie postaci  będą wykonywać zapętlone animacje – będzie
+10 animacji i każda kopia będzie wykonywała jedną z tych animacji. W trakcie
+testu będą zbierane informacje na temat ilości klatek na sekundę,
+zapotrzebowaniu na pamięć RAM oraz pamęci VRAM i ile czasu w danej klatce
+aplikacja używała procesora i procesora graficznego. Dane będą zebrane z kilku
+różnych komputerów – komputery osobiste i laptopy - o różnych specyfikacjach, a
+następnie dane zostaną przeanalizowane. Analizowane dane będą oceniane pod
+względem różnych kryteriów.
+
+
+\clearpage
+\section{Wstęp}
 %1 $\div$ 5 stron charakterystyka problematyki w świetle aktualnego stanu wiedzy i~techniki, ze wskazaniem na zagadnienia istotne z punktu widzenia realizowanej pracy.
 %Na trzeciej stronie można zamieścić podziękowania dla osób, które przyczyniły się do powstania pracy dyplomowej. Na kolejnej stronie nieparzystej rozpoczyna się spis treści. Po spisie treści zalecane jest umieszczenie wykazu użytych symboli, oznaczeń i akronimów. Od tego miejsca rozpoczyna się numeracja rozdziałów. Na następnej stronie umieszcza się wprowadzenie do pracy (scharakteryzowanie problematyki pracy, uzasadnienie wyboru tematyki) oraz przedstawia: cel i/lub tezę pracy, zakres pracy, przyjęte założenia itp.
 %Ostatni akapit wstępu musi zawierać zwięzłe sformułowanie celu i zakresu pracy. 
@@ -75,38 +99,100 @@ MacOS – oraz różne podzespoły.
 
 Rozwój gier komputerowych zawsze szedł w parze z rozwojem branży filmowej, a
 szczególnie w gałęzi filmów animowanych, co spowodowało rozwój narzędzi do
-modelowania, animowania i teksturowania. W raz z czasem powstały pierwsze
-silniki graficzne. Początkowo nie były one zbyt rozwinięte – posiadały proste
-systemy kolizji, bardzo proste systemy cząsteczkowe, obsługa animacji
-szkieletowych, modeli i dźwięku. Wraz z czasem silniki były coraz bardziej
-optymalizowane i rozwijane. Rozwój oprogramowania szedł w parze z rozwojem
-sprzętu.
+modelowania, animowania i teksturowania. Początkowo silniki graficzne nie były
+one zbyt rozwinięte – posiadały proste systemy kolizji, bardzo proste systemy
+cząsteczkowe, obsługa animacji szkieletowych, modeli i dźwięku. Wraz z czasem
+silniki graficzne były coraz bardziej optymalizowane i rozwijane. Rozwój
+oprogramowania szedł w parze z rozwojem sprzętu.
 
-Większość dużych firm zajmujących się tworzeniem gier tworzyła własne silniki
-graficzne. Każdy z tych silników jest w pewien sposób unikalny oraz posiada
-swoje problemy, z którymi muszą się zmagać twórcy gier. Wymagania doświadczenia
-pracowników oraz koszty utrzymania i modernizacji silników coraz bardziej
-popychają twórców do używania silników, które są udostępniane i wspierane przez
-inne firmy. 
 
+Twórców gier można podzielić na kilka grup:
+\begin {itemize}
+
+\item Niezależni twórcy – jedna lub kilka osób tworzy gry i wydaje je zwykle
+samodzielnie. Często korzystają z gotowych silników graficznych lub używają
+swoich bardzo prostych silników. Gry wykonane przez twórców niezależnych:
+Factorio, Stardew Valley i pierwsze wersje gry Minecraft
+
+\item Małe studia gier – niewielkie firmy zatrudniające do kilkunastu osób.
+Skończony produkt jest wydawany z pomocą wydawcy, rzadko samodzielnie. Bardzo
+rzadko te firmy korzystają z własnych silników graficznych. Przykładowe gry
+zrobione przez małe studia: Celeste, Ori and The Blind forest, Terraria
+
+\item Średnie studia gier – już większe firmy zatrudniające nawet kilkaset osób.
+W przeszłości spora część korzystała z własnych silników graficznych.
+Przykładowymi grami stworzonymi przez średnie studia są: Biomutant, Baldurs Gate 3.
+
+\item Duże i bardzo duże studia gier – posiadają nawet do kilku tysięcy
+pracowników. Bardzo często tworzą gry na własnych silnikach graficznych. Studia
+takie potrafią pracować nad kilkoma grami jednocześnie. Przykładowe gry
+stworzone przez duże studia: Wiedźmin 3 Dziki Gon, gry serii Far Cry i Assassins
+Creed. 
+
+\end{itemize} 
+
+Rzeczą, która łączy wszystkie te grupy ludzi są silniki graficzne, a właściwie
+wymóg ich użycia w projekcie. Często branymi pod uwagę przy wyborze silnika
+graficznego do projektu przez małych i średnich twórców są możliwości
+modyfikacji silnika, jak i samego silnika oraz wielkość społeczności zbudowanej
+wokół silnika graficznego. Dodatkowym czynnikiem jest branym pod uwagę jest
+jakość dokumentacji silnika graficznego. Dla dużych twórców koszt używania
+zewnętrznych silników graficznych może być wiele większy niż modernizowanie
+swojego silnika. Koszty licencji silników graficznych zwykle są zależne od zysku
+wygenerowanego przez grę. Dlatego duże firmy pokroju Electoronic Arts lub
+Ubisoft tworzą swoje gry w oparciu o własne silniki graficzne. Gry tych firm
+generują zyski liczone w miliardach, a nie rzadko sięgają bilionów. 
+
+Obecnie do najbardziej popularnymi silnikami graficznymi z dużymi
+społecznościami, z pomocą których powstają gry są: Unity, Unreal Enigne oraz
+GoDot. Z innych mniej znanych silników graficznych używanych w produkcji gier są
+Frostbite, RPG Maker, CryEngine, GameMaker Studio, Construct i wiele innych.
+Pewne silniki specjalizują się w bardzo specyficznej części gier, inne są
+wykorzystywane poza branżą gier – symulacje, rendering filmów czy wizualizacja
+danych. 
 \clearpage
 
-\section{Tekst zasadniczy -- I}
+\section{Teoretycznie o silnikach graficznych}
 
-Do 20\% objętości pracy. W zależności od charakteru pracy ten rozdział powinien zawierać:
-\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
-	\item opis tematyki zagadnienia -- aktualny stan zagadnienia,
-	\item metody i rozwiązania,
-	\item dyskusja i krytyczna ocena stanu aktualnego,
-	\item podsumowanie stanu wiedzy, techniki literaturowe itp.
-\end{enumerate}
+Gry komputerowe nie są tworzone jedynie za pomocą silników graficznych.
+Większość gier wymaga udźwiękowienia w postaci muzyki i różnego rodzaju
+dźwięków, grafiki – modele, animacje, tekstury w różnych postaciach oraz
+elementy interfejsu graficznego – oraz „kodu” – zaprogramowanie elementów świata
+gry, aby te elementy działały w taki sposób jaki chce tego twórca. Nie wszystkie
+gry muszą posiadać te elementy.. Do każdego elementu używane jest zwykle
+wyspecjalizowane oprogramowanie w celu przyśpieszenia pracy. 
 
-\subsection{Formatowanie rozdziałów i podrozdziałów}
-Rozdziały zaczynają się u góry nowej strony (parzystej lub nieparzystej). Podrozdziały i zakresy mogą zaczynać się w dowolnym miejscu strony. Przy końcu pracy zamieszcza się podsumowanie i wnioski. Ostatni akapit podsumowania musi zawierać wyszczególnienie własnej pracy Autora i zaczynać się od sformułowania: „Autor za własny wkład pracy uważa:”. W tym miejscu kończy się numeracja rozdziałów.
+Silniki graficzne są używane głównie przy tworzeniu modeli, animacji i tekstur
+oraz jako solidna podstawa pod kod gry. Przykładowo program do grafiki
+komputerowej 3D „Blender” posiada 3 silniki graficzne – EEVEE, Cycles i
+Workbench. Każdy z nich jest wyspecjalizowany w własnej dziedzinie – EEVEE jako
+renderer casu rzeczywistego, Cycles jest używany do renderowania obrazów w
+wysokiej jakości, Workbench jest używany do podglądów, modelowania i animacji.
+Jako podstawę do kodu gry można użyć silnika graficznego podobnego do Unity lub Unreal
+Engine. 
 
-Ewentualne listingi programów, instrukcje obsługi stanowisk lub inne tego rodzaju materiały zaleca się zamieścić w formie dodatków. Kolejno zamieszcza się: wykaz literatury, spis rysunków/tabel oraz streszczenie (zgodne ze „Wzorem streszczenia”). Wykaz literatury rozpoczyna od strony nieparzystej.
+\subsection{Założenia silników graficzncyh używanych w grach}
 
-Opisując własne dokonania, stosuje się formę bezosobową w czasie przeszłym np. celem pracy było zaprojektowanie\ldots, zakres pracy obejmował wyznaczenie\ldots, w~ramach pracy wykonano model\ldots itp.
+\subsection{Architektura silnika Unity}
+
+\subsection{Architektura silnika Unreal Engine}
+
+\subsection{Podsumowanie różnic między silnikami}
+
+%Do 20\% objętości pracy. W zależności od charakteru pracy ten rozdział powinien zawierać:
+%\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+%	\item opis tematyki zagadnienia -- aktualny stan zagadnienia,
+%	\item metody i rozwiązania,
+%	\item dyskusja i krytyczna ocena stanu aktualnego,
+%	\item podsumowanie stanu wiedzy, techniki literaturowe itp.
+%\end{enumerate}
+%
+%\subsection{Formatowanie rozdziałów i podrozdziałów}
+%Rozdziały zaczynają się u góry nowej strony (parzystej lub nieparzystej). Podrozdziały i zakresy mogą zaczynać się w dowolnym miejscu strony. Przy końcu pracy zamieszcza się podsumowanie i wnioski. Ostatni akapit podsumowania musi zawierać wyszczególnienie własnej pracy Autora i zaczynać się od sformułowania: „Autor za własny wkład pracy uważa:”. W tym miejscu kończy się numeracja rozdziałów.
+%
+%Ewentualne listingi programów, instrukcje obsługi stanowisk lub inne tego rodzaju materiały zaleca się zamieścić w formie dodatków. Kolejno zamieszcza się: wykaz literatury, spis rysunków/tabel oraz streszczenie (zgodne ze „Wzorem streszczenia”). Wykaz literatury rozpoczyna od strony nieparzystej.
+%
+%Opisując własne dokonania, stosuje się formę bezosobową w czasie przeszłym np. celem pracy było zaprojektowanie\ldots, zakres pracy obejmował wyznaczenie\ldots, w~ramach pracy wykonano model\ldots itp.
 \clearpage	
 
 \section{Tekst zasadniczy -- II}
