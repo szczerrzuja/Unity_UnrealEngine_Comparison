@@ -15,7 +15,7 @@ ATestCameraActor::ATestCameraActor()
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	RootComponent = BoxComponent;
-	CameraComponent->AttachToComponent(BoxComponent, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	CameraComponent->AttachToComponent(BoxComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
 }
 
@@ -58,7 +58,7 @@ void ATestCameraActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	FVector positionDifference = NextPointPosition - GetActorLocation();
-	if (positionDifference.SquaredLength() <= currentVelocity / 5.0f)
+	if (positionDifference.Length() <= currentVelocity / 5.0f)
 	{
 
 		LoadNextPoint();
@@ -67,7 +67,9 @@ void ATestCameraActor::Tick(float DeltaTime)
 			TeleportCamera();
 		}
 		this->SetActorRotation(FRotator(RotationVariable.X, RotationVariable.Y, RotationVariable.Z));
-		BoxComponent->AddImpulse(FVector(NextPointPosition - GetActorLocation()).GetSafeNormal() * currentVelocity, NAME_None, true);
+
+		BoxComponent->SetPhysicsLinearVelocity(FVector(NextPointPosition - GetActorLocation()).GetSafeNormal() * currentVelocity, false);
+		//BoxComponent->AddImpulse(FVector(NextPointPosition - GetActorLocation()).GetSafeNormal() * currentVelocity, NAME_None, true);
 
 	}
 	if (isLookingOnPoint)
@@ -81,6 +83,7 @@ void ATestCameraActor::LoadNextPoint()
 {
 	if (!cameraRouteFile.eof())
 	{
+		
 		std::string line;
 		std::getline(cameraRouteFile, line);
 		int lp, teleport, looking;
@@ -92,6 +95,7 @@ void ATestCameraActor::LoadNextPoint()
 		RotationVariable.Set(rx, rz, ry);
 		isTeleported = (bool)teleport;
 		isLookingOnPoint = (bool)looking;
+		UE_LOG(LogTemp, Warning, TEXT("%i"), lp);
 	}
 	else
 	{
