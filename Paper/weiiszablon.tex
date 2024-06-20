@@ -401,18 +401,74 @@ maszynie stanów. Pozwala programistom na wprowadzenie własnego kodu.
 animatorze. Obliczany jest czas, w jakim zajdzie przejście między klatkami
 animacji. W tym czasie mogą znajdować się wcześniej zdefiniowane zdarzenia, co
 musi zostać wywołane. 
-\item Fire animation events - animacje mogą posiadać zdarzenia, które wywołują
-konkretną metodę skryptu w wybranym momencie. 
-\item StateMachineBehaviour callbacks - dotyczy metod wywoływanych w trakcie
+\item Fire animation events - system, który pozwala na wywołanie metod, które
+mogą być wywołane w trakcie wykonywania animacji. 
+\item StateMachineBehaviour callbacks - wywołuje metody w trakcie
 przejścia między stanami. 
 \item OnAnimationMove – metoda wywołana w przypadku ruchu obiektu na bazie
 animacji. Ruch ten nazwano ‘Root Motion’, gdzie ‘Root’ oznacza nazwę kości,
 która odpowiada za pozycję całego obiektu.  
-\item ProcessAnimation –
-\item OnanimationIK
-\item WriteProperties
+\item ProcessAnimation – system, który odpowiada za przetworzenie animacji, tak
+aby była dobrze wyświetlona.  
+\item OnanimationIK - metoda pozwalająca na wstrzyknięcie własnego kodu przed
+przetworzeniem kości, które ulegają obliczeniom kinematyki odwrotnej.   
+\item WriteTransform - Proces odpowiedzialny za aktualizację macierzy
+transformacji obiektów oraz kości animacji szkieletowej. 
+\item WriteProperties - proces odpowiedzialny za zapisanie zmian obiektów i kości w trakcie animacji.  
 \end{itemize}
+Między blokami znajduje się grupa metod wewnętrznych silnika, które pozwalają na
+przeprowadzenie obliczeń fizycznych. Obliczenia te biorą pod uwagę tarcie między
+obiektami, grawitację, pęd obiektów, kolizję i kila innych czynników.   
 
+Pętlę fizyczną kończą dwie metody wywoływane podczas kolizji oraz metoda
+odroczenia metody ‘FizedUpdate’. Następnym blokiem jest ‘GameLogic’. W bloku
+logiki gry można znaleźć blok aktualizacji animacji, co zostało omówione
+wcześniej. Jako metody logiki gry zalicza się metody:
+\begin{itemize}
+\item Update - metoda wywoływana co klatkę, pozwala użytkownikowi na stworzenie
+kodu, który pozwala na aktualizację pól elementów interfejsu graficznego,
+reakcji obiektów na sygnały wejściowe, obliczenia sztucznej inteligencji itp. 
+\item yield null/WaitForSeconds/WWW/StartCoroutine – grupa odroczeń lub
+oczekiwań na otrzymanie danych. W tym miejscu jest kontynuowanie wykonywania
+odroczonego kodu, po czasie lub po otrzymaniu danych. 
+\item LateUpdate – metoda, którą można nadpisać. Jej funkcją są reakcja na
+wewnętrzną aktualizację animacji w trakcie bloku logicznego lub implementacja
+kodu, który musi zostać wykonany po animacjach. 
+\end{itemize}
+Następnym blokiem są metody wywoływane podczas procesu generowania klatki.
+Metody w bloku są nadpisywane głownie w przypadku generowania efektów
+graficznych, post procesu lub zmian w shaderach. Metody zawarte w bloku ‘Scene
+Rendering’:
+\begin{itemize}
+\item OnPreCull – metoda użytkownika wywoływana przed renderem widoku kamery. 
+\item OnBecameVisible – metoda użytkownika wywoływana, gdy obiekt jest widziany
+przez dowolną kamerę. 
+\item OnWillRenderObject – metoda wywoływana, przed rozpoczęciem procesu renderu
+obiektu. Używana głównie dla obiektów normalnie niewidocznych.
+\item OnPreRender – metoda wywoływana, przed procesem rendeingu, używana do
+ustawienia pól obiektu.
+\item OnREnderObject – metoda wywoływana podczas renderu obiektu.
+\item OnPostRender – metoda jest wywoływana po wyrenderowaniu obiektu, pozwala
+na wprowadzenie post-procesu dla obiektu
+\item OnRenderImage – metoda wywoływana podczas generowania obrazu.
+\end{itemize}
+Następną metodą wywoływaną podczas czasu życia obiektu jest metoda
+‘OnDrawGizmos’. Jest ona wywoływana podczas pracy w edytorze. Głównym
+zastosowaniem tej metody jest stworzenie narzędzi do debugowania. Po niej
+wywoływana jest metoda ‘OnGui’, która może być wywoływana wiele razy w klatce, a
+jej przeznaczeniem jest generowanie elementów interfejsu użytkownika – głownie
+przyciski, paski itp. Przed zakończeniem klatki wznawiane są odroczenia o nazwie
+‘WaitForEndOfFrame’, a po niej następuje wywołanie metody ‘OnApplicationPause’.
+Metoda ‘OnApplicationPause’ jest wywoływane w następnej klatce po wprowadzeniu
+stanu pauzy.
+
+Ostatnią częścią życia obiektu w silniku Unity są metody z bloku
+‘decommisioning’, gdzie obiekt jest usuwany lub zatrzymywany. Metoda ‘OnDisable’
+jest jedyną metodą w bloku, która nie usunie obiektu. Jest ona wywoływana, gdy
+obiekt zostanie wyłączony. ‘OnDisable’ może być wywołany wielokrotnie w trakcie
+życia obiektu. Metoda ‘OnDestroy’ musi być wywołana przez użytkownika w celu
+usunięcia obiektu. Podobnie jest z metodą ‘OnApplicationQuit’ i jedyną różnicą
+jest to, że ‘OnApplicationQuit’ rozpocznie zakończenie programu. 
 
 
 
@@ -625,64 +681,114 @@ alokowanych dynamicznie.
 \subsection{Różnice między silnikami}
 
 
+Poprzednie podrozdziały pokazały różnice w budowie i funkcjonowaniu silników.
+Poza tym należy uwzględnić inne różnice między silnikami, które nie dotyczą ich
+budowy, ale są ważnym elementem podczas programowania w obu silnikach. 
+
+W tabeli \ref{Tabela:RozniceMiedzySIlnikami} przedstawia różnice między
+silnikami, które można zauważyć przy korzystaniu z obu silników w dłuższym
+okresie czasu. Pierwszą różnicą rzucającą się w oczy jest podstawowa jednostka
+długości. W przypadku Unity jednostką odległości jest metr. W przypadku
+prędkości jest to metr na sekundę. W Unreal Engine jednostką odległości jest
+centymetr, a prędkości centymetr na sekundę. Z widzenia programisty jest to
+ważna różnica, ponieważ wymagana jest konwersja jednostek w przypadku
+korzystania ze stałych lub wzorów. Kolejną ważną różnicą jest oznaczenie osi,
+która opisuje wysokość. W Unity wysokość jest oznaczona osią Y. Jest to ważne z
+punktu widzenia programisty ponieważ domyślnie grawitacja jest skierowana
+prostopadle w dół do osi oznaczającej wysokość. W Unreal Engine wysokość jest
+opisana osią Z. 
+
+Następnym punktem w tabeli są wbudowane elementy w silnik, które pozwalają na
+zbudowanie gry. Unity posiada podstawowe funkcjonalności związane z animacjami i
+ich edytowaniem, obsługą dźwięku, modeli, skryptów itp. Jest to jednocześnie
+wada i zaleta silnika. Mała liczba gotowych elementów zmusza programistę do tworzenia
+brakujących elementów lub korzystania z elementów stworzonych przez społeczność.
+Takie podejście jest jednak czasochłonne i może doprowadzić do błędów w
+działaniu gry. Unreal Engine stoi po przeciwnej stronie medalu. Silnik zapewnia
+wiele elementów, stworzonych przez twórców silnika, które zostały przetestowane
+i sprawdzone, jednak takie podejście ogranicza w pewnym stopniu kreatywność. 
+
+Kolejnym punktem zapisanym w tabeli\ref{Tabela:RozniceMiedzySIlnikami} jest
+podział skryptów. W Unity wszystko zostało zawarte w ‘Monobehaviour’. Ze względu
+na charakter języka C\# jest to bardzo dobre podejście, ale ogranicza się to do
+pisania skryptów i wyklucza tworzenie komponentów. Unreal Engine każdą klasę
+posiada w osobnych plikach z rozszerzeniami ‘.h’ i ‘.cpp’, co jest standardem w
+przypadku programowania obiektowego w języku ‘C$++$’. Wadą tego rozwiązania jest
+szukanie pewnych klas i funkcji oraz długi czas kompilacji projektu.
+Rozwiązaniem problemu jest użycie ‘Blueprintów’ razem z ‘C$++$’.’Blueprinty’
+pozwalają na szybkie prototypowanie, jednak kod zapisany w ten sposób jest
+wolniejszy niż ten zapisany w ‘C$++$’.
+
+
+Budowa silników została opisana w poprzednich rozdziałach. Unity ma prostą
+budowę składającą się z 3 elementów. Zaletą tego rozwiązania jest lekkość
+silnika, a wadą brak rozwiniętej infrastruktury gry. 
+
+
+
+\begin{table}[ht]
+\caption{Znaczące różnice między silnikami Unity i Unreal Engine}
+\centering		
+	\begin{tabular}{|p{3cm}|p{5,5cm}|p{5,5cm}|}	
+		\hline
+		Różnica & Unity & Unreal Engine  \\
+		\hline
+		Podstawowa jednostka długości & metr & centymetr \\
+		\hline
+		Oznaczenie osi & Y oznacza wysokość & Z oznacza wysokość \\
+		\hline
+		Wbudowane funkcjonalności & Wymaga zbudowania gry od podstaw lub
+		używania plugin’ów & Posiada wbudowane funkcje, które występują w wielu
+		grach \\
+		\hline
+        Podział skryptów & Wszystko zawarte w Monobehaviour & Wszystkie
+        są zapisane w osobnych plikach \\
+        \hline
+        Podział elementów silnika & Scena, Obiekt, Komponent & Instancja
+        silnika, GameMode, GameState, Level, Controller, Aktor, Komponent \\
+        \hline
+	\end{tabular}	
+	
+\label{Tabela:RozniceMiedzySIlnikami}
+\end{table}	
+
+
+
+
+
 
 \clearpage	
 \section{Testowanie wydajności silników Unity i Unreal Engine}
 
-\subsection{Założenia i zakres  testów oraz klasyfikacja danych}
-Głównym testem będzie sprawdzenie jak silniki radzą sobie z generacją obrazu w
-czasie rzeczywistym, gdzie obiektów w grze jest kilka tysięcy. Ilość obiektów
-będzie wyznaczona metodą prób i błędów w taki sposób, aby silniki graficzne
-działały w przedziale <10-25> klatek na sekundę w pierwszych kilku sekundach
-trwania testu. Obiekty będą prostymi modelami z zapętlonymi animacjami wybranymi
-wcześniej w sposób losowy – rozstawienie, animacje i prędkość animacji zostaną
-wygenerowane skryptem i będą takie same dla obu silników. Ruch kamery zostanie
-zdefiniowany przed testem podobnie jak obiekty rozstawione w świecie. 
+%\subsection{Założenia, zakres testów oraz klasyfikacja danych}
 
-Głównym celem testów jest oszacowanie, który silnik graficzny lepiej radzi sobie
-z generacją klatek w czasie rzeczywistym. Kryteriami będą:
-\begin{itemize}
-\item Licznik FPS – jest to wartość równa 1/(czas wykonania programu między
-klatkami). Najważniejsze kryterium ze wszystkich, jednak różnica między 1-2
-klatek na sekundę nie jest znacząca. Dodatkowo można określić stabilność
-programu szukając ile razy wystąpiła znacząca fluktuacja od wartości średniej. 
-\item Użycie czasów procesora i procesora graficznego – ważne kryterium, które
-pomoże ustalić, który z silników graficznych wymaga większej mocy obliczeniowej.
-Jest to drugorzędny znacznik jednak nie mniej ważny. 
-\item Zużycie pamięci RAM i VRAM – pozostałe znaczące znaczniki przy ustalaniu
-wydajności gry komputerowej mające wpływ na jakość obrazu i stabilność programu. 
-\end{itemize}
-Sprawdzana będzie nie tylko ilość używanych zasobów, ale też stabilność programu
-i fluktuacje w zużyciu zasobów. 
+Głównym testem jest sprawdzenie jak silniki radzą sobie z generacją obrazu w
+czasie rzeczywistym. Ilość obiektów została wyznaczona metodą prób i błędów w
+taki sposób, aby silniki graficzne były pod obciążeniem. Obiekty są prostymi
+modelami z zapętlonymi animacjami wybranymi wcześniej w sposób losowy –
+rozstawienie, animacje i prędkość animacji zostaną wygenerowane skryptem i były
+takie same dla obu silników. Ruch kamery został zdefiniowany przed testem
+podobnie jak obiekty rozstawione w świecie. 
 
+Silniki graficzne są bardzo złożone, dlatego test obejmuje tylko jeden aspekt
+jakim jest renderowanie dynamicznie rozstawionych obiektów wraz z animacjami.
+Obiekty w świcie gry mogą być statyczne, co oznacza, że nie można ich ruszyć i
+nie działają na nie prawa fizyki. Silniki graficzne mogą zmniejszać wymagania
+obliczeniowe związane z tym obiektem przykładowo poprzez wypalania oświetlenia.
+Dynamicznymi obiektami są określane wszystkie obiekty, które można ruszyć,
+poruszają się same z siebie albo są zaanimowane.  
 
-
-
-\subsection{Program w unity}
-
-\subsection{Program w Unreal Engine}
-
-\clearpage
-\section{Zbieranie i analiza danych}
 Gry komputerowe trafiają na różne urządzenie z różną mocą obliczeniową.
 Dodatkowo komputery posiadają wiele programów i usług działających w tle, które
 mają wpływ na wynik testów. Te czynniki należy wziąć pod uwagę podczas trwania
-testów. Gry komputerowe trafiają na różne urządzenie z różną mocą obliczeniową.
-Dodatkowo komputery posiadają wiele programów i usług działających w tle, które
-mają wpływ na wynik testów. Te czynniki należy wziąć pod uwagę podczas trwania
-testów. Dlatego testy odbędą się na komputerach – komputerach stacjonarnych i
-laptopach - z systemem Windows 10 lub Windows 11. System operacyjny został
-wybrany ze względu na popularność wśród graczy. Gry komputerowe trafiają na
-różne urządzenie z różną mocą obliczeniową. Dodatkowo komputery posiadają wiele
-programów i usług działających w tle, które mają wpływ na wynik testów. Te
-czynniki należy wziąć pod uwagę podczas trwania testów. Dlatego testy odbędą się
-na komputerach – komputerach stacjonarnych i laptopach - z systemem Windows 10
-lub Windows 11. System operacyjny został wybrany ze względu na popularność wśród
-graczy. Zgodnie z badaniem z lutego 2024 roku wykonanym przez platformę Steam –
-największa aplikacja, która pozwana na kupno i granie w gry na komputery
-osobiste i laptopy – gracze używający ich sklepu korzystający z systemów Windows
-10 i Windows 11 stanowią ok
-96,15\% wszystkich graczy korzystających z komputerów – odpowiednio 54,19\% i 41,96\%. 
+testów. Dlatego testy odbędą się na komputerach stacjonarnych i laptopach z
+systemem Windows 10 i Windows 11. System operacyjny został wybrany ze względu na popularność
+wśród graczy. Zgodnie z badaniem z lutego 2024 roku wykonanym przez platformę
+Steam, która jest największa aplikacją sprzedająca gry na komputery. Gracz
+korzystający ze sklepu najczęściej używają systemów Windows 10 i Windows 11
+stanowiących odpowiednio 53,19\% i 41,96\% wszystkich graczy co zosstało
+przedstawione na rysunku
+\ref{SteamHardwareSoftwareSurvay}
 
 \begin{figure}[ht]
     \centering
@@ -690,6 +796,380 @@ osobiste i laptopy – gracze używający ich sklepu korzystający z systemów W
     \caption{Statystyka użycia systemów operacyjnych przez graczy komputerowych przeprowadzona przez Steam \cite{SteamSurvey}}
     \label{SteamHardwareSoftwareSurvay}
 \end{figure}
+
+\newpage
+
+Głównym celem testów jest oszacowanie, który silnik graficzny lepiej radzi sobie
+z generacją klatek w czasie rzeczywistym. Kryteriami oceniania są:
+
+\begin{itemize}
+\item Licznik FPS – jest to wartość równa 1/(czas wykonania programu między
+klatkami). Najważniejsze kryterium ze wszystkich, jednak różnica między 1-2
+klatkami na sekundę nie jest znacząca. Dodatkowo można określić stabilność na
+podstawie różnych miar pokroju minimum, maskimum i odchylenie standardowe. 
+\item Użycie czasów procesora i procesora graficznego – ważne kryterium, które
+pomoże ustalić, który z silników graficznych wymaga większej mocy obliczeniowej.
+Jest to drugorzędny wyznacznik i zostało zmierzone średnie, minimalne i maksymalne użycie. 
+\item Zużycie pamięci RAM i VRAM – Zużycie pamięci RAM i VRAM – ostatni
+wyznacznik. Zbyt mała ilość pamięci RAM i VRAM może doprowadzić do
+nieuruchomienia się gry.  Najważniejsza jest maksymalna ilość używanego zasobu
+podczas testu, a średnie i minimalne użycie jest ciekawostką. Maksymalne
+wartości pozwolą na określenie, który silnik lepiej gospodaruje zasobami. 
+\end{itemize}
+
+
+\clearpage
+\section{Analiza danych}
+
+W tabeli \ref{Tabela:KomputeryTesty} przedstawiono 7 komputerów, które zostały
+użyte do przetestowania wydajności silników. Wśród komputerów 6 jest komputerami
+stacjonarnymi, a jeden to laptop. Wśród używanych komputerów pojawiają się różne
+karty graficzne. Komputerem z najwolniejszą kartą graficzną jest pc6, a z
+najszybszą pc4. Komputerami z największym taktowaniem pamięci RAM są pc3
+i pc2. Najwolniejszą pamięć RAM posiada cp6. Najwolniejszy procesor posiada pc7.
+Najszybsze procesory znajduje się w komputerze pc2. PC3 zawiera najnowszy model
+procesora, ale jest to wersja dedykowana dla laptopów, przez co jest wolniejszy.  
+
+\begin{table}[ht]
+    \caption{Komputery użyte do testów}
+    \centering		
+        \begin{tabular}{|c|c|c|c|c|c|}	
+            \hline
+            LP & Typ jednostki & Procesor & Pamięć RAM & Karta Graficzna & System \\
+            \hline
+            PC1 & K. stacjonarny & Ryzen 5 3600 & 16GB 3200MHz & GeForce RTX 2070 8GB & Win 10\\
+            \hline
+            PC2 & K. stacjonarny & Ryzen 5 5600 & 32GB 4800MHz & GeForce RTX 4060 8GB & Win 11 \\
+            \hline
+            PC3 & Laptop & Ryzen 5 6600H & 16GB 4800MHz & GeForce RTX 3050 4GB & Win 10 \\
+            \hline
+            PC4 & K. stacjonarny & Ryzen 5 3600 & 16GB 3333MHz & Radeon RX6800 16GB & Win 10\\
+            \hline
+            PC5 & K. stacjonarny & Ryzen 5 3600X & 16GB 2133MHz & Radeon RX 580 8GB & Win 10\\
+            \hline
+            PC6 & K. stacjonarny & i7-3770K & 16GB 1333MHz & GeForce GTX 1050 Ti 4GB & Win 10\\
+            \hline
+            PC7 & K. stacjonarny & i5 4460 & 16GB 1600MHz & Radeon RX6600 8GB & Win 10\\
+            \hline
+
+        \end{tabular}	
+    \label{Tabela:KomputeryTesty}
+\end{table}	
+
+
+
+
+W tabelach \ref{Tabela:StatystykiUnity1} i \ref{Tabela:StatystykiUnity2}
+przedstawiono dane statystyczne stworzone na podstawie zebranych danych dla
+silnika unity. Minimalna liczba klatek mieściła się w przedziale <3.00, 5.52>. W
+przypadkach 4 komputerów minimalna liczba FPS wynosiła 3.00 co może się wiązać z
+działaniem silnika. Maksymalna liczba FPS wynosiła 50.00 dla wszystkich
+komputerów poza PC7, dla którego wyniosła 60.06. Te wyniki zostały odnotowane
+podczas rozstawiania modeli w silniku. Średnia liczba klatek mieściła się w
+przedziale <17.77, 34.25>. Średnia liczba klatek była najniższa w komputerze z
+najsłabszym procesorem, a najwyższa w przypadku PC4. Odchylenie standardowe
+liczby klatek na sekundę mieściło się w przedziale od <3.15, 4.75>, co świadczy
+o sporym odchyleniu od wartości średniej. Średnia najgorszego 1\% i 0.1\% klatek
+na sekundę odbiega od wartości średniej o ponad 10 FPS w prawie wszystkich
+przypadkach co świadczy o dużych fluktuacjach w prędkości wyświetlanego obrazu.
+Wymagany minimalny czas pracy procesora nie przekraczał 42 milisekund.
+Największy maksymalny czas pracy procesora został odnotowany w pc4, który
+posiadał najniższy minimalny czas pracy.  Średnia czasu pracy procesora mieściła
+się w przedziale <29.29, 52.59>. Silnik Unity używał średnio ok 770MB pamięci
+RAM i wartość średnia była podobna dla wszystkich komputerów. Wartości
+maksymalne nie odbiegały znacząco od wartości średnich. Minimalne użycie pamięci
+RAM oscylowało wokół 700MB i najwięcej używał komputer z najsłabszym procesorem
+PC7. W użyciu czasu karty graficznej można zauważyć duże różnice między
+jednostkami, które są zależne mocy kart graficznych. Największe wartości
+minimalnego, maksymalnego oraz średniego czasu użycia zostały odnotowane dla
+komputera PC6. Najniższy średni i maksymalny czas pracy został odnotowany dla
+komputera pc4, a najniższy średni czas pracy został odnotowany dla komputera
+pc2, co świadczy o tym, że komputer z szybszym procesorem średnio używał mniej
+czasu karty graficznej, niż komputer z szybszą kartą graficzną. Takie zjawisko
+może być skorelowane z przesyłaniem danych z procesora do karty graficznej.
+Ostatnimi wartościami w tabelach są minimalne, maksymalne i średnie użycie
+pamięci VRAM karty graficznej. W teście średnio używano ok 2400MB pamięci VRAM z
+małymi odchyleniami w zależności od komputera i podobne zjawisko zachodzi w
+przypadku wartości maksymalnych, które nie odbiegają znacząco od wartości
+średnich. Minimalne użycie pamięci VRAM jest podobne dla wszystkich komputerów
+poza pc7, który używał ok. 700MB pamięci więcej. 
+
+Podsumowując użycie zasobów różnych komputerów można dojść do następujących
+wniosków:
+\begin{itemize}
+\item Test unity działał lepiej na PC4 osiągając średnio 34.25 klatek na sekundę
+z odchyleniem standardowym  na poziomie 4.15. Najgorszy 1\% i 0.1\% różni się od
+siebie w znaczący sposób, co świadczy od dużych fluktuacjach. 
+
+\item Laptop używany w teście nie odbiegał znacząco od komputerów stacjonarnych
+w wynikach poza maksymalnym użyciem czasu procesora, który wyniósł 730 ms, co
+było najwyższym uzyskanym wynikiem. 
+
+\item Silnik unity wymaga więcej mocy procesora niż karty graficznej, o czym
+świadczy różnica między użyciem karty graficznej i procesora, ale najlepszy
+wynik został zanotowany na komputerze z 4 najlepszym procesorem i najlepszą
+kartą graficzną wśród komputerów. 
+
+\item Unity używa ok.770MB pamięci RAM i ok 2400MB pamięci VRAM niezależnie od
+mocy obliczeniowej procesora i karty graficznej. Wartości maksymalne są mocno
+zbliżone do wartości średnich. 
+\end{itemize}
+
+
+
+
+
+\begin{table}[ht]
+    \caption{Dane statystyczne zebrane z komputerów w Unity cz.1}
+    \centering		
+        \begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1cm}|}	
+            \hline
+            LP & Min FPS & Max FPS & Avg FPS & Std FPS & Worst 1\% & Worst 0.1\% & Min CPU (ms) & Max CPU (ms)  & Avg CPU (ms) \\
+            \hline
+            PC1 & 5.33 & 50.00 & 31.34 & 4.29 & 20.68 & 19.60 & 24.64 & 72.70 & 31.19 \\
+            \hline
+            PC 2 & 5.52 & 50.00 & 33.48 & 4.55 & 22.22 & 18.54 & 22.88 & 57.00 & 29.29 \\
+            \hline
+            PC 3 & 5.26 & 50.00 & 31.09 & 4.75 & 16.68 & 14.71 & 24.56 & 64.38 & 32.07 \\
+            \hline
+            PC 4 & 3.00 & 50.00 & 34.25 & 4.15 & 19.22 & 5.24 & 18.49 & 730.92 & 30.66 \\
+            \hline
+            PC 5 & 3.00 & 50.00 & 22.53 & 3.60 & 14.10 & 10.97 & 32.02 & 97.24 & 42.73 \\
+            \hline
+            PC 6 & 3.00 & 50.00 & 20.47 & 3.21 & 9.55 & 8.33 & 36.41 & 144.98 & 47.93 \\
+            \hline
+            PC 7 & 3.00 & 60.06 & 17.77 & 3.15 & 11.98 & 10.00 & 41.41 & 296.63 & 52.59 \\
+            \hline
+        \end{tabular}	
+    \label{Tabela:StatystykiUnity1}
+\end{table}	
+
+\begin{table}[ht]
+        \caption{Dane statystyczne zebrane z komputerów w Unity cz.2}
+        \centering		
+        \begin{tabular}{|p{1cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}	
+            \hline
+            LP & Min RAM Usage (MB) & Max RAM Usage (MB) & Avg RAM Usage (MB) & Min GPU (ms) & Max GPU (ms)  & Avg GPU (ms) & Min VRAMUsage (MB) & Max VRAMUsage (MB) & Avg VRAMUsage (MB) \\
+            \hline
+            PC1 & 698.84 & 773.10 & 772.16 & 2.37 & 46.20 & 15.12 & 302.44 & 2496.94 & 2452.35 \\
+            \hline
+            PC2 & 698.84 & 777.10 & 776.03 & 1.78 & 40.31 & 13.71 & 265.52 & 2460.02 & 2415.44 \\
+            \hline
+            PC3 & 698.84 & 777.10 & 776.03 & 2.91 & 60.89 & 20.58 & 265.52 & 2460.02 & 2415.42 \\
+            \hline
+            PC4 & 698.84 & 779.10 & 775.41 & 0.05 & 32.11 & 16.32 & 265.52 & 2472.02 & 2417.40 \\
+            \hline
+            PC5 & 698.84 & 773.10 & 772.21 & 0.79 & 68.11 & 17.85 & 265.52 & 2460.02 & 2415.30 \\
+            \hline
+            PC6 & 697.59 & 775.85 & 774.72 & 3.53 & 100.53 & 33.20 & 265.52 & 2460.02 & 2415.37 \\
+            \hline
+            PC7 & 715.47 & 770.60 & 770.45 & 2.11 & 97.06 & 25.22 & 997.93 & 2565.50 & 2533.38 \\
+            \hline
+
+            \hline
+    
+        \end{tabular}	
+    \label{Tabela:StatystykiUnity2}
+\end{table}	
+\newpage
+
+Tabele \ref{Tabela:StatystykiUnreal1} i \ref{Tabela:StatystykiUnreal2}
+przedstawiają statystyki opracowane na bazie danych zebranych podczas testów
+silnika Unreal Engine przeprowadzonych na komputerach przedstawionych w
+tabeli\ref{Tabela:KomputeryTesty}. Minimalna liczba klatek na sekundę jest niska
+dla wszystkich jednostek i nie przekracza wartości 0.77. Najwyższe wartości
+średnie i maksymalne klatek w teście zostały osiągnięte przez PC1, co świadczy o
+tym, że na szybkość generowania klatek mają wpływ inne czynniki niż moc
+obliczeniowa karty graficznej i procesora. Istnieje możliwość, że pc2 osiągną
+słabszy wynik ze względu na system operacyjny. Nieznacznie niższy wynik średniej
+ilości FPS osiągną PC4 z niższą wartością odchylenia standardowego. Najgorszy
+wynik uzyskał pc6, z najgorszymi podzespołami. Odchylenie standardowe liczby
+klatek jest zależne od podzespołów komputera, ale największą wartość osiągną
+pc3. Wartość najgorszego 1\% i 0.1\% jest mniejsza od wartości średniej
+odpowiednio w przedziale (3,5) i (4,10) i jest zależne od mocy obliczeniowej
+komputera. Najniższa wartość najgorszego 0.1\% klatek został odnotowany dla pc4,
+co świadczy o rzadkich, ale większych spadkach stabilności wyświetlania obrazu.
+Użycie procesora nie jest zależne od jego mocy, ponieważ komputer z
+najwolniejszym procesorem średnie użycie czasu pracy procesora na poziomie
+zbliżonym do komputerów z szybszymi procesorami. Najdłużej średnio procesor
+pracował w komputerze z najwolniejszą kartą graficzną, ale najdłuższy czas pracy
+procesora w klatce został zanotowany dla komputera PC5. Minimalne użycie czasu
+pracy procesora nie przekroczyło wartości 8ms i w 3 przypadkach było mniejsze
+niż 0.5ms. Użycie pamięci RAM było zbliżone dla wszystkich komputerów.
+Maksymalnie test używał 1515MB pamięci na komputerze pc5. Ten sam komputer
+posiadał najwyższe średnie użycie pamięci RAM, które odbiegało od drugiego
+najwyższego wyniku o ok. 40 MB i wynosiło 1303. Najmniej tej pamięci używał pc2.
+Te wyniki sugerują, że użycie RAM’u jest zależne od podzespołów komputera. W
+przypadku użycia czasu pracy karty graficznej można zauważyć, czas pracy tego
+podzespołu jest zależny od jego mocy. Karta graficzna PC4 pracowała najkrócej, a
+PC5 najdłużej. Minimalny czas pracy karty graficznej wyniósł dla wszystkich
+komputerów 0ms i było to podczas ładowania poziomu. W przypadku pamięci VRAM
+karty graficznej jej średnie i maksymalne zużycie jest różne dla wszystkich
+jednostek i oscyluje odpowiednio między wartościami <756,1375>MB i <1024,
+1932>MB. Minimalne użycie pamięci VRAM było równe dla wszystkich komputerów i
+wynosiło 0.02MB. Ta wartość została odnotowana w czasie ładowania poziomu. 
+
+Po analizie danych statystycznych na temat użycia zasobów przez silnik Unreal
+Enigne można dojść do następujących wniosków:
+\begin{itemize}
+\item Na działanie programów w silniku Unreal Engine mogą mieć wpływ inne
+czynniki niż moc obliczeniowa karty graficznej czy procesora
+\item Stabilność generowania klatek jest zależna od mocy procesora i karty
+graficznej.
+\item Unreal wykorzystuje w teście więcej mocy obliczeniowej karty graficznej
+niż mocy procesora. 
+\item Ilość używanej pamięci RAM i VRAM przez program nie jest równa dla
+wszystkich komputerów na których wykonano testy. Różnice wyniosły 400MB w
+przypadku pamięci RAM i ok. 900MB w przypadku VRAM’u.
+\item W trakcie ładowania poziomu silnik nie wykorzystuje karty graficznej. 
+\item W przypadku komputera z systemem Windows 11 został odnotowany słabszy
+wynik, co może być powiązane z różnicami między systemami Windows 10 i Windows
+11. 
+\end{itemize}
+
+
+\begin{table}[ht]
+    \caption{Dane statystyczne zebrane z komputerów w Unreal Engine cz.1}
+    \centering		
+        \begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1cm}|}	
+            \hline
+            LP & Min FPS & Max FPS & Avg FPS & Std FPS & Worst 1\% & Worst 0.1\% & Min CPU (ms) & Max CPU (ms)  & Avg CPU (ms) \\
+            \hline
+            PC1 &0.72 & 17.62 & 14.75 & 1.13 & 11.29 & 10.65 & 1.85 & 76.75 & 23.77  \\	
+            \hline
+            PC2 & 0.77 & 12.30 & 10.26 & 0.57 & 8.80 & 7.89 & 7.99 & 65.53 & 31.30 \\
+            \hline
+            PC3 & 0.75 & 13.28 & 10.42 & 1.78 & 5.55 & 5.07 & 0.10 & 166.32 & 30.74  \\
+            \hline
+            PC4 & 0.62 & 16.69 & 14.24 & 0.98 & 10.99 & 8.55 & 0.29 & 77.37 & 23.13  \\
+            \hline
+            PC5 & 0.69 & 15.78 & 12.39 & 1.30 & 9.15 & 2.55 & 3.15 & 248.33 & 27.82  \\
+            \hline
+            PC6 & 0.60 & 8.75 & 6.96 & 1.34 & 3.57 & 3.28 & 3.00 & 189.06 & 51.07  \\
+            \hline
+            PC7 & 0.26 & 14.64 & 10.49 & 1.34 & 7.41 & 7.11 & 0.21 & 103.86 & 29.82 \\
+            \hline
+
+        \end{tabular}	
+    \label{Tabela:StatystykiUnreal1}
+    \end{table}	
+
+\begin{table}[ht]
+    \caption{Dane statystyczne zebrane z komputerów w Unreal Engine cz.2}
+    \centering		
+        \begin{tabular}{|p{1cm}|p{1,1cm}|p{1,4cm}|p{1,4cm}|p{1cm}|p{1,3cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1,5cm}|}	
+            \hline
+            LP & Min RAMUsage (MB) & Max RAM Usage (MB) & Avg RAM Usage (MB) & Min GPU (ms) & Max GPU (ms)  & Avg GPU (ms) & Min VRAM Usage (MB) & Max VRAM Usage (MB) & Avg VRAM Usage (MB) \\
+            \hline
+            PC1 & 891.84 & 1192.42 & 1147.32 & 0.00 & 495.69 & 41.44 & 0.02 & 1376.75 & 1347.87 \\
+            \hline
+            PC2 & 895.72 & 1107.62 & 1059.57 & 0.00 & 275.53 & 30.45 & 0.02 & 1042.42 & 756.09 \\
+            \hline
+            PC3 & 967.32 & 1270.13 & 1219.99 & 0.00 & 916.77 & 77.82 & 0.02 & 1552.02 & 993.64 \\
+            \hline
+            PC4 & 914.39 & 1339.31 & 1159.13 & 0.00 & 179.04 & 14.95 & 0.02 & 1605.20 & 1373.53 \\
+            \hline
+            PC5 & 868.34 & 1432.96 & 1264.48 & 0.00 & 511.32 & 48.57 & 0.02 & 1932.48 & 1343.09 \\
+            \hline
+            PC6 & 870.37 & 1515.11 & 1303.42 & 0.00 & 1408.78 & 127.18 & 0.02 & 1733.08 & 1375.39 \\
+            \hline
+            PC7 & 820.81 & 1175.81 & 1129.66 & 0.00 & 257.55 & 22.68 & 0.00 & 1752.53 & 906.55 \\
+            \hline
+            \hline
+
+        \end{tabular}	
+\label{Tabela:StatystykiUnreal2}
+\end{table}	
+\clearpage
+
+Rysunki
+\ref{Fig:PC1Tests}, \ref{Fig:PC2Tests}, \ref{Fig:PC3Tests}, \ref{Fig:PC4Tests}, \ref{Fig:PC5Tests}, \ref{Fig:PC6Tests}, \ref{Fig:PC7Tests}
+przedstawiają wykresy klatek na sekundę od czasu przebiegu testów dla różnych
+komputerów. Na wykresach kolorem niebieskim oznaczono dane zebrane w czasie
+testu silnika unity, a na pomarańczowo dla silnika Unreal Engine. Wykresy
+zostały ograniczone do 3000 sekund trwania testu. Wykres dla silnika Unreal
+Enigne został przesunięty ze względu na działanie narzędzia, które zapisuje
+czas. 
+
+Wszystkie wykresy dla testów silnika Unity posiadają dolinę w podobnym miescu
+trwania testu, która znajduje się parędziesiąt sekund od zaczęcia testu i trwa
+do 200 sekund. Pod koniec trwania testu zachodzi podobne zjawisko. Ze względu na
+zaistnienie zjawiska w testach na różnych komputerach oraz ze względu na fakt,
+że występują one w tym podobnym miejscu w czasie, to jest to cecha silnika
+Unity. W pierwszych sekundach wykresy mają wartość 50 lub 60 klatek na sekundę.
+Na wykresach najmniejsze fluktuacje zachodzą na wykresie \ref{Fig:PC6Tests}.
+Dziwne zachowanie można zaobserwować na wykresie \ref{Fig:PC7Tests}, gdzie
+wykres ma wartość ok. 30 klatek na sekundę i są to pojedyncze skoki. Największe
+fluktuacje na wykresie znajdują się na wykresie \ref{Fig:PC4Tests}. Poza tym na
+wszystkich wykresach można zaobserwować spadki, które wynoszą ponad 10 klatek, a
+na niektórych spadki wynoszą nawet 20 klatek na sekundę. 
+
+Wszystkie wykresy dla silnika Unreal Engine posiadają dolinę kilkadziesiąt
+sekund od rozpoczęcia testu, jednak nie jest ona tak głęboka jak w przypadku
+testów wykonanych na silniku Unity. Dolina ta jest głęboka na ok. 2 lub 3 FPS.
+Jedynymi wyjątkami są pc6 \ref{Fig:PC6Tests} i pc3 \ref{Fig:PC3Tests}. Długość
+doliny jest zależna od sprzętu na którym został wykonany test. Początek wykresu
+zaczyna się wartością bliską 0. Fluktuacje na wykresach są niewielkie i poza
+nielicznymi przypadkami nie ma większych odchyleń od średniej. Największe
+fluktuacje zachodziły dla pc4 \ref{Fig:PC4Tests} Test silnika Unreal trwał
+dłużej.
+
+Liczba FPS w teście silnika Unity była znacząco wyższa niż silnika Unreal
+Enigne, ale też z dużo większymi fluktuacjami. Silnik Unreal Engine był bardzo
+stabilny z niewielkimi odchyleniami do średniej. W wykresach obu testów ukazały
+się pewne błędu lub niedociągnięcia silników w początkowych fazach testów.  
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc1searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC1}
+    \label{Fig:PC1Tests}
+\end{figure}        
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc2searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC2}
+    \label{Fig:PC2Tests}
+\end{figure}        
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc3searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC3}
+    \label{Fig:PC3Tests}
+\end{figure}        
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc4searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC4}
+    \label{Fig:PC4Tests}
+\end{figure}      
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc5searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC5}
+    \label{Fig:PC5Tests}
+\end{figure}    
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc6searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC6}
+    \label{Fig:PC6Tests}
+\end{figure}      
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=16cm]{figures/FPSPlots/pc7searchedDataName.png}
+    \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC7}
+    \label{Fig:PC7Tests}
+\end{figure}    
+
+
+
+
 
 \clearpage
 \section{Podsumowanie i wnioski}

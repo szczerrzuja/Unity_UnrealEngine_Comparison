@@ -1,0 +1,17 @@
+GPU - Radeon RX 580 Series 8GB
+---------------------------------
+CPU - AMD Ryzen 5 3600X 6-Core Processor 
+Szybkość podstawowa:	3,80 GHz
+Gniazda:	1
+Rdzenie:	6
+Procesory logiczne:	12
+---------------------------------
+RAM - 16GB (2x 8GB 2133Mhz
+---------------------------------
+PŁYTA - B450 AORUS ELITE
+---------------------------------
+
+
+
+
+	

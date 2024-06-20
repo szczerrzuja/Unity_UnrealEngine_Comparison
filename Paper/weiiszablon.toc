@@ -5,13 +5,10 @@
 \contentsline {section}{\numberline {3}Teoretycznie o silnikach graficznych}{\footnotesize 9}{}%
 \contentsline {subsection}{\numberline {3.1}Założenia silników graficzncyh używanych w grach}{\footnotesize 9}{}%
 \contentsline {subsection}{\numberline {3.2}Architektura silnika Unity}{\footnotesize 12}{}%
-\contentsline {subsection}{\numberline {3.3}Architektura silnika Unreal Engine}{\footnotesize 17}{}%
-\contentsline {subsection}{\numberline {3.4}Różnice między silnikami}{\footnotesize 23}{}%
-\contentsline {section}{\numberline {4}Testowanie wydajności silników Unity i Unreal Engine}{\footnotesize 24}{}%
-\contentsline {subsection}{\numberline {4.1}Założenia i zakres testów oraz klasyfikacja danych}{\footnotesize 24}{}%
-\contentsline {subsection}{\numberline {4.2}Program w unity}{\footnotesize 24}{}%
-\contentsline {subsection}{\numberline {4.3}Program w Unreal Engine}{\footnotesize 24}{}%
-\contentsline {section}{\numberline {5}Zbieranie i analiza danych}{\footnotesize 25}{}%
-\contentsline {section}{\numberline {6}Podsumowanie i wnioski}{\footnotesize 27}{}%
-\contentsline {section}{Załączniki}{\footnotesize 28}{}%
-\contentsline {section}{Literatura}{\footnotesize 29}{}%
+\contentsline {subsection}{\numberline {3.3}Architektura silnika Unreal Engine}{\footnotesize 19}{}%
+\contentsline {subsection}{\numberline {3.4}Różnice między silnikami}{\footnotesize 25}{}%
+\contentsline {section}{\numberline {4}Testowanie wydajności silników Unity i Unreal Engine}{\footnotesize 27}{}%
+\contentsline {section}{\numberline {5}Analiza danych}{\footnotesize 30}{}%
+\contentsline {section}{\numberline {6}Podsumowanie i wnioski}{\footnotesize 44}{}%
+\contentsline {section}{Załączniki}{\footnotesize 45}{}%
+\contentsline {section}{Literatura}{\footnotesize 46}{}%

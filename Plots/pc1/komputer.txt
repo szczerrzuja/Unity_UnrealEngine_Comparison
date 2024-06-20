@@ -1,0 +1,4 @@
+RAM: 16GB 3200MHZ
+Procesor: Ryzen 5 3600 4000MHZ
+Grafika: RTX 2070 8GB Vram
+Płyta Główna: MSI B450 GAMING PLUS MAX
