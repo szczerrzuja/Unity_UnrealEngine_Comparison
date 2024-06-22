@@ -1,0 +1,5 @@
+Ilość ramu: 2
+Taktowanie pamięcie: 4800 MHz
+Procesor: AMD Ryzen 5 6600H
+Karta graficzna: NVIDIA® GeForce RTX 3050 4GB Laptop
+Płyta główna: Motherboard 5B21H70568 (Laptop)

@@ -1,0 +1,19 @@
+Operating System
+	Windows 11 Pro 64-bit
+CPU
+	AMD Ryzen 5 5600 6-Core Processor
+RAM
+	32,0GB Dual-Channel DDR4
+Motherboard
+	ASRock B550M-HDV (AM4)
+Graphics
+	LG IPS FULLHD (1920x1080@60Hz)
+	NVIDIA GeForce RTX 4060 Ti (Gigabyte)
+Storage
+	931GB TOSHIBA DT01ACA100 (SATA )
+	476GB SSDPR-CX400-512 (SATA (SSD))
+	931GB SSDPR-PX600-1K0-80 (Unknown (SSD))
+Optical Drives
+	Wirtualny dysk DVD-ROM firmy Microsoft
+Audio
+	Urządzenie zgodne ze standardem High Definition Audio

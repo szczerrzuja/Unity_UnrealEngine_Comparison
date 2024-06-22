@@ -1,4 +1,0 @@
-RAM: 16GB 3333MHz
-Procesor: Ryzen 5 3600 4000MHz
-Grafika: AMD Radeon RX6800 16gb VRAM
-Plyta Glowna: MSI BAZOOKA V2 B450

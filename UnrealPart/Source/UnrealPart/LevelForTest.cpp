@@ -101,6 +101,8 @@ void ALevelForTest::Savedata()
     
     //gpu time from nanosecond to miliseconds
     const float gpuTime = FPlatformTime::ToMilliseconds(GGPUFrameTime);
+
+    
     FPlatformMemoryStats memorystats;
     memorystats = FPlatformMemory::GetStats();
   

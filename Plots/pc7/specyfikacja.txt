@@ -1,4 +1,0 @@
-Radeon RX6600 8GB VRAM
-Intel Core i5 4460 3.2GHz 4 rdzenie 4 wątki
-Pamięć Ram 16GB 1600MHz
-Płyta głowna: H81M-S2H

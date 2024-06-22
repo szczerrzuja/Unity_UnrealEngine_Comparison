@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
-
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{weiiszablon}
 
 \author{Kacper Rudź}
@@ -18,7 +18,7 @@
 \studentID{EF-16045}
 
 \title{Porównanie silników Unreal Engine i Unity pod kątem tworzenia gier}
-\titleEN{Comparison of Unreal Engine and Unity software for game development}
+\titleEN{Comparison of Unreal Engine and Unity for game development}
 
 
 %%% wybierz rodzaj pracy wpisując jeden z poniższych numerów: ...
@@ -27,7 +27,7 @@
 % 3 = doktorska		% PhD
 %%% na miejsce zera w linijce poniżej
 \newcommand{\rodzajPracyNo}{2}
-
+\usepackage{float}
 
 %%% promotor
 \supervisor{dr inż. Sławomir Samolej prof. PRz}
@@ -36,8 +36,8 @@
 %%% promotor ze stopniami naukowymi po angielsku
 \supervisorEN{ PhD Eng Sławomir Samolej}
 
-\abstract{Treść streszczenia po polsku}
-\abstractEN{Treść streszczenia po angielsku}
+\abstract{W ramach pracy zostało przedstawione porównanie silników graficznych Unity i Unreal Engine pod kątem tworzenia gier. Oba silniki zostały porównane pod kątem ich budowy oraz użycia zasobów przy prostym teście na komputerach z różnymi podzespołami. Dodatkowo zostały przestawione inne różnice między silnikami, na które należy zwrócić uwagę podczas tworzenia gier. Test polegał obejmował jeden aspekt silników graficznych jakim jest proces renderowania dynamicznie rozstawionych obiektów w pustym poziomie. Dane zebrane podczas testów zostały przetworzone w celu określenia użycia zasobów, co pokazało dalsze różnice między silnikami.  }
+\abstractEN{The comparison of Unity and Unreal Engine graphic engines in terms of game development was presented as part of the study. Both engines were compared in terms of their structure and resource usage in a simple test on computers with different components. Additionally, other differences between the engines were highlighted, which should be taken into account when creating games. The test focused on one aspect of graphic engines, which is the process of rendering dynamically placed objects in an empty level. Data collected during the tests were processed to determine resource usage, revealing further differences between the engines.}
 
 \begin{document}
 
@@ -53,11 +53,11 @@
 \blankpage
 
 
-\section*{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}
-\addcontentsline{toc}{section}{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}%
+%\section*{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}
+%\addcontentsline{toc}{section}{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}%
 
-1 $\div$ 2 stron wykaz ważniejszych symboli i oznaczeń (jeśli jest potrzebny).
-\clearpage
+%1 $\div$ 2 stron wykaz ważniejszych symboli i oznaczeń (jeśli jest potrzebny).
+%\clearpage
 
 \section{Wstęp}
 %1 $\div$ 5 stron charakterystyka problematyki w świetle aktualnego stanu wiedzy
@@ -160,13 +160,13 @@ wymaganych do prawidłowego funkcjonowania gry. W tym celu został przeprowadzon
 test polegający na rozłożeniu w silniku kilku tysięcy kopii jednej postaci i
 poruszaniu się kamery po ustalonej wcześniej ścieżce przez kilkadziesiąt minut.
 Kopie postaci wykonują zapętlone animacje -- będzie 10 animacji i każda kopia
-będzie wykonywała jedną z tych animacji. W trakcie testu zostały zebrane
-informacje na temat ilości klatek na sekundę, zapotrzebowaniu na pamięć RAM oraz
-pamięci VRAM i ile czasu w danej klatce aplikacja używała procesora i procesora
-graficznego. Dane zostały zebrane z kilku różnych komputerów -- komputery
-osobiste i laptopy -- o różnych specyfikacjach, a następnie dane zostały
-przeanalizowane. Analizowane dane zostały ocenione pod względem różnych
-kryteriów.
+będzie wykonywała jedną z tych animacji zapętloną w nieskończoność. W trakcie
+testu zostały zebrane informacje o ilości klatek na sekundę,
+zapotrzebowaniu na pamięć RAM oraz pamięci VRAM karty graficznej i ile czasu w danej klatce
+aplikacja używała procesora i procesora graficznego. Dane zostały zebrane z
+kilku różnych komputerów -- komputery osobiste i laptopy -- o różnych
+specyfikacjach, a następnie dane zostały przeanalizowane. Analizowane dane
+zostały ocenione pod względem różnych kryteriów.
 
 
 
@@ -184,12 +184,13 @@ wyspecjalizowanych programach.
 
 Silniki graficzne są używane głównie przy tworzeniu modeli, animacji i tekstur
 oraz jako solidna podstawa pod kod gry. Przykładowo program do grafiki
-komputerowej 3D „Blender” posiada 3 silniki graficzne -- EEVEE, Cycles
-i Workbench. Każdy z nich jest wyspecjalizowany w własnej dziedzinie – EEVEE
+komputerowej 3D „Blender” posiada 3 silniki graficzne -- EEVEE\cite{Blender:EEVEE}, Cycles\cite{Blender:Cycles}
+i Workbench\cite{Blender:Workbench}. Każdy z nich jest wyspecjalizowany w własnej dziedzinie – EEVEE
 jako renderer casu rzeczywistego, Cycles jest używany do renderowania obrazów w
 wysokiej jakości, Workbench jest używany do podglądów, modelowania i animacji.
 Jako podstawę do kodu gry można użyć silnika graficznego podobnego do Unity lub
 Unreal Engine. 
+
 
 \subsection{Założenia silników graficzncyh używanych w grach}
 
@@ -277,26 +278,29 @@ graficznego przez twórców gier.
 \clearpage
 
 \subsection{Architektura silnika Unity}
+Do opisania silnika Unity wykorzystano dokumentację silnika \cite{Unity:Documentatnion}.
 
 Unity Engine jest silnikiem stworzonym i rozwijanym od 2005 roku. Silnik
 graficzny zdominował rynek małych, średnich gier, gier na telefon oraz jest
 używany w symulacjach. W Unity do programowania skryptów używa się języka C\#,
-ale istnieje możliwość pisania skryptów za pomocą `Visual Scripting`. Skrypty w silniku, które używają metod Unity muszą dziedziczyć z ‘Monobehaviur’ lub klas pochodnych. 
+ale istnieje możliwość pisania skryptów za pomocą `Visual Scripting`. Skrypty w
+silniku, które używają metod Unity muszą dziedziczyć z ‘Monobehaviur’ lub klas
+pochodnych. 
 
 Unity posiada bardzo prostą strukturę, a sam silnik pozwala twórcom na
 nadpisywanie tylko określonych metod, ale jest ich na tyle dużo, że nie wpływa
 to na elastyczność silnika. Cały silnik jest podzielony na kilka
-części\cite{Unity:Architecture}: 
+części: 
 \begin{itemize}
 \item Scena – w Unity poziomy zostały nazwane scenami. Przy przejściu między
 scenami obiekty na scenie są usuwane. Jedynym wyjątkiem od reguły jest użycie
 metody ‘DontDestroyOnLoad()’, która sprawi, że obiekt zostanie przeniesiony
-między scenami. Poza tym dane między poziomami mogą być przenoszone poprzez
-zmienne globalne i pola statyczne.
+między scenami \cite{Unity:DonSaveOnLoad}. Poza tym dane między poziomami mogą być przenoszone poprzez
+zmienne globalne i pola statyczne\cite{Unity:Scena}.
 \item Obiekt – obiekty są elementami, które można ustawić na scenie. W obiektach
 znajdują się komponenty, które mogą mieć różne funkcje. Obiekt na scenie ma
 podstawowe transformacje takie jak rotacja, skala i przesunięcie. Jeden obiekt
-może mieć wiele obiektów potomków, które mogą dziedziczyć transformacje. 
+może mieć wiele obiektów potomków, które mogą dziedziczyć transformacje\cite{Unity:Obiekt}. 
 \item Komponenty – komponentem w silniku Unity można podzielić na wiele
 kategorii: Rigidbody, Collider, Script, Mesh Rendere, AudioSource, Light itp.
 Każdy element ma swoją funkcję od odtwarzania dźwięku po sterowanie animacjami. 
@@ -365,7 +369,7 @@ inicjalizacja, w której znajdują się metody:
 \begin{itemize}
 \item Awake() – metoda wywoływana, przy stworzeniu obiektu lub komponentu.
 Metoda nie zostanie wywołana, kiedy obiekt nie jest ‘przebudzony’. Metoda może
-zostać wywołana tylko raz.
+zostać wywołana tylko raz \cite{Unity:Awake}.
 \item OnEnable() – w przeciwieństwie do ‘Awake’ metoda może być wywoływana wiele
 razy w trakcie życia obiektu lub komponentu, kiedy pole ‘enabled’ zmienia
 wartość z ‘false’ na ‘true’.
@@ -388,7 +392,7 @@ są kolizje, dla których metody zostaną wywołane.
 \item OnCollision – zdarzenie w silniku unity podczas kolizji typu
 ‘collider-collider’
 \item yield Wait on FixedUpdate – kontynuacja działania metody ‘FixedUpdate’ po
-jej odroczeniu
+jej odroczeniu \cite{Unity:yield}
 \end{itemize}
 W trakcie pętli fizycznej znajdują się dwa duże bloki, które są używane w
 animacjach. W tych blokach znajdują się następujące metody:
@@ -396,7 +400,10 @@ animacjach. W tych blokach znajdują się następujące metody:
 \item State machine update – silnik przeprowadza aktualizacje maszyny stanów dla
 kontrolerów animacji. Zmiana stanów maszyn jest przeprowadzana wielowątkowo. 
 \item OnStateMachine Ender/Exit – metody wywoływane podczas zmiany stanów w
-maszynie stanów. Pozwala programistom na wprowadzenie własnego kodu.
+maszynie stanów. Zmiana stanów może zachodzić pod pewnym warunkiem lub po
+zakończeniu animacji. Jeden stan przechowuje posiada jedną animacje, ale mogą
+pojawić się stany puste. Pozwala programistom na wprowadzenie własnego kodu.
+\cite{Unity:StateChangeEnter,Unity:StateChangeExit}
 \item ProcessGraph – blok odpowiedzialny za przetworzenia grafów używanych w
 animatorze. Obliczany jest czas, w jakim zajdzie przejście między klatkami
 animacji. W tym czasie mogą znajdować się wcześniej zdefiniowane zdarzenia, co
@@ -411,7 +418,7 @@ która odpowiada za pozycję całego obiektu.
 \item ProcessAnimation – system, który odpowiada za przetworzenie animacji, tak
 aby była dobrze wyświetlona.  
 \item OnanimationIK - metoda pozwalająca na wstrzyknięcie własnego kodu przed
-przetworzeniem kości, które ulegają obliczeniom kinematyki odwrotnej.   
+przetworzeniem kości, które ulegają obliczeniom kinematyki odwrotnej \cite{Unity:ONAnimationIK}.   
 \item WriteTransform - Proces odpowiedzialny za aktualizację macierzy
 transformacji obiektów oraz kości animacji szkieletowej. 
 \item WriteProperties - proces odpowiedzialny za zapisanie zmian obiektów i kości w trakcie animacji.  
@@ -430,7 +437,7 @@ kodu, który pozwala na aktualizację pól elementów interfejsu graficznego,
 reakcji obiektów na sygnały wejściowe, obliczenia sztucznej inteligencji itp. 
 \item yield null/WaitForSeconds/WWW/StartCoroutine – grupa odroczeń lub
 oczekiwań na otrzymanie danych. W tym miejscu jest kontynuowanie wykonywania
-odroczonego kodu, po czasie lub po otrzymaniu danych. 
+odroczonego kodu, po czasie lub po otrzymaniu danych \cite{Unity:yield}. 
 \item LateUpdate – metoda, którą można nadpisać. Jej funkcją są reakcja na
 wewnętrzną aktualizację animacji w trakcie bloku logicznego lub implementacja
 kodu, który musi zostać wykonany po animacjach. 
@@ -440,16 +447,16 @@ Metody w bloku są nadpisywane głownie w przypadku generowania efektów
 graficznych, post procesu lub zmian w shaderach. Metody zawarte w bloku ‘Scene
 Rendering’:
 \begin{itemize}
-\item OnPreCull – metoda użytkownika wywoływana przed renderem widoku kamery. 
+\item OnPreCull – metoda użytkownika wywoływana przed renderem widoku kamery\cite{Unity:onCurl}.  
 \item OnBecameVisible – metoda użytkownika wywoływana, gdy obiekt jest widziany
 przez dowolną kamerę. 
 \item OnWillRenderObject – metoda wywoływana, przed rozpoczęciem procesu renderu
 obiektu. Używana głównie dla obiektów normalnie niewidocznych.
 \item OnPreRender – metoda wywoływana, przed procesem rendeingu, używana do
-ustawienia pól obiektu.
-\item OnREnderObject – metoda wywoływana podczas renderu obiektu.
+ustawienia pól obiektu\cite{Unity:OnPreRender}.
+\item OnRenderObject – metoda wywoływana podczas renderu obiektu.
 \item OnPostRender – metoda jest wywoływana po wyrenderowaniu obiektu, pozwala
-na wprowadzenie post-procesu dla obiektu
+na wprowadzenie post-procesu dla obiektu\cite{Unity:OnPostRender}.
 \item OnRenderImage – metoda wywoływana podczas generowania obrazu.
 \end{itemize}
 Następną metodą wywoływaną podczas czasu życia obiektu jest metoda
@@ -482,6 +489,7 @@ jest to, że ‘OnApplicationQuit’ rozpocznie zakończenie programu.
 
 \clearpage
 \subsection{Architektura silnika Unreal Engine}
+Do opisania silnika Unreal Engine wykorzystano dokumentację silnika \cite{UE:Documentatnion}.
 Silnik Unreal Engine jest powstałym w 1991 roku rozwijanym do dzisiaj. Silnik
 aktualnie jest jednym z najbardziej rozwiniętych silników graficznych. W silniku
 można pisać kod na dwa sposoby: 
@@ -508,14 +516,14 @@ używać, ale najczęściej używane to:
 która działa od rozpoczęcia programu do jego wyłączenia. Obiekt klasy może być
 użyty w celu przechowywania danych między poziomami, zapisywania i wczytywania
 danych np. zapisu gry lub ustawień gracza oraz do przechowywania funkcji, które
-muszą być dostępne globalnie. 
+muszą być dostępne globalnie.\cite{UE:GameInstance} 
 
 \item GameMode –- Klasa, która definiuje logikę w danym trybie gry. W grze może
 być zaimplementowanych wiele trybów, ale tylko jeden obiekt typu GameMode może
 istnieć. Obiekt tej klasy jest zawarty w obiekcie GameInstance. GameMode jest
 odpowiedzialny za obsługę wejścia, kolizji oraz zmian poziomów, stworzenie
 obiektu gracza i systemy zarządzania punktami. Zwykle każdy poziom ma swój
-obiekt typu GameMode. 
+obiekt typu GameMode.\cite{UE:GameModeState}
 
 \item GameState –- klasa używana do przechowywania i zarządzania danymi pokroju
 obecne punkty, pozostały czas, zdrowie gracza i inne ważne dane gry. Obiekt jest
@@ -523,19 +531,20 @@ zwykle zarządzany przez obiekt GameMode i w przypadku gry sieciowej jest
 replikowany z serwera do klientów. Obiekt tej klasy jest łatwo dostępny przez
 inne obiekty w programie pokroju kontrolerów gracza i obiektów klasy Actor.
 Najważniejszą funkcją obiektów tej klasy jest synchronizacja stanu gry dla
-wszystkich graczy. 
+wszystkich graczy.\cite{UE:GameModeState}
 
-\item LevelScriptActor –- specjalny typ aktora w silniku, który pozwala na
-stworzenie logiki, która będzie wykonywana w czasie ładowania poziomu. Obiekt
-klasy pozwala na ustawienie początkowego ustawienia klasy GameState, stworzenie
-i ustawienie obiektów, aktywacja wydarzeń i wiele innych. Klasa jest nadpisywana
-w celu stworzenia skryptów, które będą używane w zależności od poziomu. 
+\item Level Blueprint/LevelScriptActor –- specjalny typ aktora w silniku, który
+pozwala na stworzenie logiki, która będzie wykonywana w czasie ładowania
+poziomu. Obiekt klasy pozwala na ustawienie początkowego ustawienia klasy
+GameState, stworzenie i ustawienie obiektów, aktywacja wydarzeń i wiele innych.
+Klasa jest nadpisywana w celu stworzenia skryptów, które będą używane w
+zależności od poziomu.\cite{UE:LevelScriptActor}
 
 \item Controller –- kontrolery dzielą się na dwie kategorie: kontrolery AI i
 kontrolery gracza. Te obiekty tej klasy są odpowiedzialne za przetwarzanie i
 przekazanie sygnałów wejścia do kontrolowanego obietku. Kontorlery determinują
 sposób nawigacji postaci przez poziom, reakcję postaci w różnych sytuacjach oraz
-interakcje z innymi obiektami w poziomie. 
+interakcje z innymi obiektami w poziomie.\cite{UE:Controller}
 
 
 \item Pawn/Actor/Chracter -- Actor jest najbardziej podstawowym obiektem, który
@@ -547,7 +556,8 @@ Pawn są używane do stworzenia zachowań imitujących pojazdy lub zwierzęta.
 Character jest klasą dziedziczącą z klasy Pawn. Obiekty klasy character w
 porównaniu do dwóch poprzednich klas posiadają własną implementację ruchu,
 komponentów animacji i zmiany wejścia na ruch fizyczny. Character jest klasą
-używaną do stworzenia obiektu imitującego człowieka lub zwierzę. 
+używaną do stworzenia obiektu imitującego człowieka lub zwierzę z gotową
+implementacją podstawowych mechanik.\cite{UE:Actor,UE:Pawn,UE:Character} 
 
 \item Komponenty –- komponentami w UnrealEngine są wszystkie klasy, które
 dziedziczą z klasy UActorComponent, a jest ich ponad 400. Komponenty zwykle
@@ -555,7 +565,7 @@ odpowiadają za jedną funkcjonalność np. oświetlenie, kolizje, fizyka, kamer
 siatka itp.  W ten sposób w silniku został stworzony stopień modularności, który
 pozwala na wysoką elastyczność i skalowalność projektu. Jeden komponent może
 zostać użyty w wielu różnych klasach. Komponenty mogą zostać użyte tylko w
-klasach dziedziczących z klasy Actor lub innych komponentach. KOlejną metodą jest 
+klasach dziedziczących z klasy Actor lub innych komponentach.\cite{UE:Component}
 
 
 \end{itemize}
@@ -708,21 +718,20 @@ działaniu gry. Unreal Engine stoi po przeciwnej stronie medalu. Silnik zapewnia
 wiele elementów, stworzonych przez twórców silnika, które zostały przetestowane
 i sprawdzone, jednak takie podejście ogranicza w pewnym stopniu kreatywność. 
 
-Kolejnym punktem zapisanym w tabeli\ref{Tabela:RozniceMiedzySIlnikami} jest
-podział skryptów. W Unity wszystko zostało zawarte w ‘Monobehaviour’. Ze względu
-na charakter języka C\# jest to bardzo dobre podejście, ale ogranicza się to do
-pisania skryptów i wyklucza tworzenie komponentów. Unreal Engine każdą klasę
-posiada w osobnych plikach z rozszerzeniami ‘.h’ i ‘.cpp’, co jest standardem w
-przypadku programowania obiektowego w języku ‘C$++$’. Wadą tego rozwiązania jest
-szukanie pewnych klas i funkcji oraz długi czas kompilacji projektu.
-Rozwiązaniem problemu jest użycie ‘Blueprintów’ razem z ‘C$++$’.’Blueprinty’
-pozwalają na szybkie prototypowanie, jednak kod zapisany w ten sposób jest
-wolniejszy niż ten zapisany w ‘C$++$’.
+Kolejnym punktem zapisanym w tabeli \ref{Tabela:RozniceMiedzySIlnikami} jest
+podział skryptów. W Unity wszystko zostało zawarte w ‘Monobehaviour’. Unreal
+Engine każdą klasę posiada w osobnych plikach z rozszerzeniami ‘.h’ i ‘.cpp’, co
+jest standardem w przypadku programowania obiektowego w języku ‘C$++$’. Wadą
+tego rozwiązania jest szukanie pewnych klas i funkcji oraz długi czas kompilacji
+projektu. Rozwiązaniem problemu jest użycie ‘Blueprintów’ razem z
+‘C$++$’.’Blueprinty’ pozwalają na szybkie prototypowanie, jednak kod zapisany w
+ten sposób jest wolniejszy niż ten zapisany w ‘C$++$’.
 
 
 Budowa silników została opisana w poprzednich rozdziałach. Unity ma prostą
 budowę składającą się z 3 elementów. Zaletą tego rozwiązania jest lekkość
-silnika, a wadą brak rozwiniętej infrastruktury gry. 
+silnika, a wadą brak rozwiniętej infrastruktury gry. Unreal Engine posiada
+bardziej rozwiniętą infrastrukturę, ale przez to jest bardziej wymagający. 
 
 
 
@@ -763,12 +772,12 @@ silnika, a wadą brak rozwiniętej infrastruktury gry.
 %\subsection{Założenia, zakres testów oraz klasyfikacja danych}
 
 Głównym testem jest sprawdzenie jak silniki radzą sobie z generacją obrazu w
-czasie rzeczywistym. Ilość obiektów została wyznaczona metodą prób i błędów w
-taki sposób, aby silniki graficzne były pod obciążeniem. Obiekty są prostymi
-modelami z zapętlonymi animacjami wybranymi wcześniej w sposób losowy –
-rozstawienie, animacje i prędkość animacji zostaną wygenerowane skryptem i były
-takie same dla obu silników. Ruch kamery został zdefiniowany przed testem
-podobnie jak obiekty rozstawione w świecie. 
+czasie rzeczywistym. Obiekty są prostymi modelami z zapętlonymi animacjami
+wybranymi wcześniej w sposób losowy – rozstawienie, animacje i prędkość animacji
+zostaną wygenerowane skryptem i były takie same dla obu silników. Modelem i
+animacjami użytymi w testach były te, Które zostały wykonane w projekcie
+inżynierskim \cite{ModelSource}.Autor wyraził zgodę na użycie modelu w pracy.
+
 
 Silniki graficzne są bardzo złożone, dlatego test obejmuje tylko jeden aspekt
 jakim jest renderowanie dynamicznie rozstawionych obiektów wraz z animacjami.
@@ -776,7 +785,7 @@ Obiekty w świcie gry mogą być statyczne, co oznacza, że nie można ich ruszy
 nie działają na nie prawa fizyki. Silniki graficzne mogą zmniejszać wymagania
 obliczeniowe związane z tym obiektem przykładowo poprzez wypalania oświetlenia.
 Dynamicznymi obiektami są określane wszystkie obiekty, które można ruszyć,
-poruszają się same z siebie albo są zaanimowane.  
+poruszają się same z siebie albo są zaanimowane. 
 
 Gry komputerowe trafiają na różne urządzenie z różną mocą obliczeniową.
 Dodatkowo komputery posiadają wiele programów i usług działających w tle, które
@@ -788,34 +797,196 @@ Steam, która jest największa aplikacją sprzedająca gry na komputery. Gracz
 korzystający ze sklepu najczęściej używają systemów Windows 10 i Windows 11
 stanowiących odpowiednio 53,19\% i 41,96\% wszystkich graczy co zosstało
 przedstawione na rysunku
-\ref{SteamHardwareSoftwareSurvay}
+\ref{SteamHardwareSoftwareSurvay} W badaniu również znalazły się dane na temat
+używania poszczególnych komponentów przez graczy. Można odczytać, że gracz
+najczęściej posiadają 16GB pamięci ram i ta grupa stanowi prawie połowę
+wszystkich graczy. Procesory graczy pracują w taktowaniu od 2.3 do 2.69GHz.
+Największa różnorodność można dopatrzyć się w używanych kartach graficznych.
+Najczęściej używaną kartą graficzną jest karta GeFroceRTX 3060, której używa
+6\% graczy. Ponad połowa graczy używa rozdzielczości 1920x1080. Jedna trzecia
+graczy posiada w swoich kartach graficznych 8GB pamięci VRAM.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=14cm]{figures/SteamHardwareSoftwareSurvay.png}
     \caption{Statystyka użycia systemów operacyjnych przez graczy komputerowych przeprowadzona przez Steam \cite{SteamSurvey}}
     \label{SteamHardwareSoftwareSurvay}
 \end{figure}
 
-\newpage
+
 
 Głównym celem testów jest oszacowanie, który silnik graficzny lepiej radzi sobie
 z generacją klatek w czasie rzeczywistym. Kryteriami oceniania są:
 
 \begin{itemize}
 \item Licznik FPS – jest to wartość równa 1/(czas wykonania programu między
-klatkami). Najważniejsze kryterium ze wszystkich, jednak różnica między 1-2
-klatkami na sekundę nie jest znacząca. Dodatkowo można określić stabilność na
-podstawie różnych miar pokroju minimum, maskimum i odchylenie standardowe. 
+klatkami). Różnica między 1-2 klatkami na sekundę nie jest znacząca. Dodatkowo
+można określić stabilność na podstawie różnych miar pokroju minimum, maskimum i
+odchylenie standardowe. Dodatkowo zostały opracowane wykresy pokazujące
+wyświetlaną liczbę klatek w danej sekundzie testów dla każdego komputera, na
+którym dobył się test.   
 \item Użycie czasów procesora i procesora graficznego – ważne kryterium, które
-pomoże ustalić, który z silników graficznych wymaga większej mocy obliczeniowej.
-Jest to drugorzędny wyznacznik i zostało zmierzone średnie, minimalne i maksymalne użycie. 
+pomoże ustalić, która część komputera jest mocniej wykorzystywana podczas testu.
+Zostało uzyskane średnie, minimalne i maksymalne użycie. 
 \item Zużycie pamięci RAM i VRAM – Zużycie pamięci RAM i VRAM – ostatni
 wyznacznik. Zbyt mała ilość pamięci RAM i VRAM może doprowadzić do
 nieuruchomienia się gry.  Najważniejsza jest maksymalna ilość używanego zasobu
 podczas testu, a średnie i minimalne użycie jest ciekawostką. Maksymalne
 wartości pozwolą na określenie, który silnik lepiej gospodaruje zasobami. 
 \end{itemize}
+
+Do zbierania danych o użyciu procesora, pamięci RAM, pamięci VRAM karty
+graficznej i procesora graficznego użyto wbudowanych narzędzi i bibliotek w
+silniki. Powodem wybrania takiego rozwiązania jest uproszczenie uruchomiania
+testów na wielu komputerach i eliminuje potrzebę instalacji zewnętrznego
+oprogramowania. 
+
+
+Liczba rozłożonych obiektów została dobrana metodą prób i błędów zaczynając od
+20 tysięcy. Liczba była dobrana w taki sposób, aby prędkość wyświetlania klatek
+na jednym z silników wynosiła co najmniej 15 klatek na sekundę, a na drugim
+silniku było co najmniej 10 klatek na sekudnę w edytorze obu silników. Powodem
+takiego kryterium było doprowadzenie do sytuacji, gdzie oba silniki będą
+pracowały pod znacznym obciążeniem, co z kolei pozwoliło na zanotowanie
+fluktuacji w szybkości wyświetlania kolejnych klatek. Jest to bardzo ważne z
+perspektywy osoby używającej produkt końcowy, czyli graczy. Duże zmiany w
+szybkości wyświetlania kolejnych klatek mogą zmienić odbiór gry. Pierwszym
+krokiem stworzenia testu jest utworzenie projektu na obu silnikach. Zostały
+wykorzystane ‘puste’ projekty oferowane przez oba silniki graficzne. Przez
+domyślne ustawienia silników testy mogą wydawać się inne od siebie. Jest to
+iluzja spowodowana innymi ustawieniami kamer w obu silnikach. Kamera w obu
+silnikach porusza się za pomocą fizyki w grze. Dla kamer została wyłączona
+grawitacja.  Kamery poruszają się ruchem jednostajnym prostoliniowym od punktu
+do punktu na ścieżce. Po osiągnięciu punktu zostaje wczytany następny punkt, aż
+do osiągnięcia ostatniego punktu, co spowoduje wyłącznie się testu. Po
+osiągnięciu każdego następnego punktu kamera zmienia rotację. Kamera może być
+ustawiona tak, aby patrzeć się w kierunku jakiegoś punktu. W końcowych fazach
+testu kamera jest ‘teleportowana’ po czym przez krótki czas rusza się do przodu
+ruchem jednostajnym. Ważne aby skrypty w silnikach działały w podobny sposób. 
+
+
+\subsection{Przygotowanie testu Unity}
+
+Do zbierania informacji o użyciu zasobów w trakcie testów z silnikiem Unity
+został wykorzystany ‘Profiler’ silnika. Profiler jest narzędziem do określenia
+ile zasobów wymagają pewne części gry. Narzędzie pozwala na twórcom gier na
+podjęcie próby optymalizacji programu do takiego stopnia, aby gra działała
+płynne na pewnej grupie urządzeń. W skrypcie narzędzia te znajdują się w
+‘UnityEngine.Profiling’ i ‘Unity.Profiling’. Narzędzie ma wadę, która nie
+pozwala na zbieranie danych co klatkę, ale co pewien czas. W programie
+wykorzystano następujące metody i klasy:
+\begin{itemize}
+\item Profiler.GetTotalReservedMemoryLong() – metoda zwraca ilość używanej
+pamięci RAM podaną w bajtach. 
+\item Profiler.GetAllocatedMemoryForGraphicsDriver() – metoda zwraca ilość
+pamięci karty graficznej VRAM użytej przez program. Zwraca wartość podana jest w
+bajtach. 
+\item ProfilerRecorder – klasa używana do zliczania ile czasu pracował dany
+podzespół komputera w określonym czasie. W programie testowym obiekty klasy
+zostały użyte do zliczenia czasu pracowały procesor i karta graficzna. W
+obiektach zapisywane są próbki. Czas pracy jest zapisany w nanosekundach. W
+próbek została wyciągnięta średnia.
+\end{itemize}
+Dane z narzędzia w teście są zbierane co 0.5 sekundy. Liczba FPS była zbierana
+co klatkę. Profiler jest słabo udokumentowanym narzędziem oraz wymaga zbudowania
+programu w trybie developerskim.
+
+W projekcie Unity na scenie istnieją tylko 3 obiekty i są nimi obiekt
+rozstawiający modele, obiekt z komponentem kamery oraz obiekt z źródłem światła.
+Obiekt z kamerą posiada odpowiedni skrypt, który wczytuje następne punkty drogie
+i wyłącza program po dotarciu do ostatniego punktu. Obiekty imitujące model są
+tworzone z ‘prefab’a’, w którym znajduje się model i animator do zarządzania
+animacjami. Na rysunku \ref{Fig:UnityAnimation} pokazano jak wygląda maszyna
+stanów aniamtora. Stanem wejściowym jest ‘InitState’, od którego są poprowadzone
+przejścia do innych stanów animacji. Przejście między stanami jest zależne od
+wartości parametru ‘AnimationID’. 
+
+
+
+Na rysunku \ref{Fig:TESTUnityScreen} przedstawiono jak wyglądają pierwsze sekundy testu zbudowane na silniku Unity. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{figures/UnityAnimation.png}
+    \caption{Stany animacji w Animatorze w Unity}
+    \label{Fig:UnityAnimation}
+\end{figure}     
+\clearpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=16cm]{figures/UnityTestScreen.png}
+    \caption{Wygląd testu silnika Unity w pierwszych sekundach }
+    \label{Fig:TESTUnityScreen}
+\end{figure}     
+
+\subsection{Przygotowanie testu Unreal Engine}
+
+W silniku Unreal Engine informacje o użyciu czasu procesora, pamięci RAM i pamięci karty graficznej są zapisywane w klasach rodziny ‘FPlatform’. Z tych klas wykorzystano następujące metody i pola:
+\begin{itemize}
+\item ‘GetPerFrameProcessorUsage’ jest metodą zawartą w klasie
+‘FPlatformMemory’, która zwraca czas procesora użyty w danym procesie gry. Za
+argumenty przyjmuje ID procesu i dwie referencje typu float. W tych referencjach
+zostaną zapisane czas obliczeń procesora oraz czas oczekiwania procesora jako
+procent czasu pracy. Suma tych wartości wskazuje jaką część całkowitego czasu
+pracy procesora zastało poświęcone na grę. Czas oczekiwania procesora określa
+jak długo procesor oczekiwał na dane z pamięci itp. 
+\item Metoda GetStats z klasy FPlatformMemory pozwala na uzyskanie danych o
+pamięci komputera. Metoda zwraca obiekt FPlatformMemoryStats z którego pole
+UsedPhysical zwraca ile pamięci RAM jest używane przez aplikację w poprzedniej
+klatce podane w bajtach. 
+\item GGPUFrameTime jest polem, które przechowuje liczbę cykli procesora karty
+graficznej użytych w poprzedniej klatce. Zamiast odwołania do pola można wywołać
+metodę ‘FPlatformTime::Cycles()’
+\end{itemize}
+Do uzyskania informacji o ilości użytej pamięci karty graficznej przez program
+użyto biblioteki ‘RHI’. ‘RHI’ jest interfejsem pomiędzy kartą graficzną, a
+programem. Z biblioteki została użyta metoda ‘GetUsedMemory’, która zwraca ilość
+używanej pamięci karty graficznej w kilobajtach. Działanie ‘RHI’ nie wymaga
+działania silnika w trybie developerskim. 
+
+Obiektem używanym do rozstawienia modeli i zapisania danych o użytych zasobach
+był obiekt poziomu stworzony na podstawie klasy dziedziczącej z
+‘LevelScriptActor’. Wymagało to zmiany klasy bazowej w poziomie. Do zapisywania
+danych wykorzystano bibliotekę standardową z języka c$++$, ponieważ były
+prostrze w obsłudze te wbudowane w silnik Unreal Enigne. Zapisany poziom
+należało ustawić jako domyślny w ustawieniach projektu. Podobnie należało
+postąpić z domyślnym ‘pawn’em’, którego należało podmieć na innego, który będzie
+sterował kamerą. Ten pionek posiada w sobie komponent kamery, który będzie
+funkcjonował jako domyślna kamera w teście, gdy domyślny pionek zostanie
+stworzony. ‘RootComponent’ jest ‘BoxComponent’, dzięki czemu pionek mógł się
+ruszać za pomocą prostej fizyki. Do tego komponentu został podłączony komponent
+kamery. Przy wczytywaniu następnych punktów w ścieżce kamery oraz prędkości
+kamery należało pamiętać o konwersji jednostek. W miejsca, gdzie miały być
+modele z animacjami zostali stworzeni aktorzy, którzy posiadali
+‘SkeletalMeshComponent’. Ten komponent wymaga ustawienia klasy animacji. Klasa
+animacji w projekcie nazwana ‘mannequinAnimBP’ jest ‘Blueprint’em’ dziedziczącym
+z klasy ‘AnimIsntance’, co pozwoliło na ustawienie prostej maszyny stanów, która
+pozwoliła na ustawienie zapętlonej animacji. 
+Na rysunku \ref{Fig:UnrealManequin} przedstawiono drzewo przejść animacji.
+Przejścia polegają na porównaniu zmiennej ‘AnimationIndex’ do ustawionej liczby
+stałej. Węzeł ‘Temp’ jest domyślnym węzłem, z którego jest przejście do reszty
+węzłów. 
+
+Rysunek \ref{Fig:TESTUnrealScreen} przedstawia pierwsze kilka sekund testu.
+Rozstawieni aktorzy odtwarzają wybraną animację zapętloną w nieskończoność. 
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{figures/UnrealManequin.png}
+    \caption{Drzewo przejść animacji w silniku Unreal Engine}
+    \label{Fig:UnrealManequin}
+\end{figure}     
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{figures/UnrealTestScreen.png}
+    \caption{Wygląd testu silnika Unreal Engine w losowym momencie}
+    \label{Fig:TESTUnrealScreen}
+\end{figure}     
+
+
 
 
 \clearpage
@@ -828,28 +999,29 @@ karty graficzne. Komputerem z najwolniejszą kartą graficzną jest pc6, a z
 najszybszą pc4. Komputerami z największym taktowaniem pamięci RAM są pc3
 i pc2. Najwolniejszą pamięć RAM posiada cp6. Najwolniejszy procesor posiada pc7.
 Najszybsze procesory znajduje się w komputerze pc2. PC3 zawiera najnowszy model
-procesora, ale jest to wersja dedykowana dla laptopów, przez co jest wolniejszy.  
+procesora, ale jest to wersja dedykowana dla laptopów, przez co jest wolniejszy.
+Tylko pc2 używał systemu Windows 11, a reszta używała systemu Windows 10.  
 
 \begin{table}[ht]
     \caption{Komputery użyte do testów}
     \centering		
         \begin{tabular}{|c|c|c|c|c|c|}	
             \hline
-            LP & Typ jednostki & Procesor & Pamięć RAM & Karta Graficzna & System \\
+            LP & Typ jednostki & Procesor & Pamięć RAM & Karta Graficzna  \\
             \hline
-            PC1 & K. stacjonarny & Ryzen 5 3600 & 16GB 3200MHz & GeForce RTX 2070 8GB & Win 10\\
+            PC1 & K. stacjonarny & Ryzen 5 3600 & 16GB 3200MHz & GeForce RTX 2070 8GB\\
             \hline
-            PC2 & K. stacjonarny & Ryzen 5 5600 & 32GB 4800MHz & GeForce RTX 4060 8GB & Win 11 \\
+            PC2 & K. stacjonarny & Ryzen 5 5600 & 32GB 4800MHz & GeForce RTX 4060 8GB  \\
             \hline
-            PC3 & Laptop & Ryzen 5 6600H & 16GB 4800MHz & GeForce RTX 3050 4GB & Win 10 \\
+            PC3 & Laptop & Ryzen 5 6600H & 16GB 4800MHz & GeForce RTX 3050 4GB  \\
             \hline
-            PC4 & K. stacjonarny & Ryzen 5 3600 & 16GB 3333MHz & Radeon RX6800 16GB & Win 10\\
+            PC4 & K. stacjonarny & Ryzen 5 3600 & 16GB 3333MHz & Radeon RX6800 16GB \\
             \hline
-            PC5 & K. stacjonarny & Ryzen 5 3600X & 16GB 2133MHz & Radeon RX 580 8GB & Win 10\\
+            PC5 & K. stacjonarny & Ryzen 5 3600X & 16GB 2133MHz & Radeon RX 580 8GB\\
             \hline
-            PC6 & K. stacjonarny & i7-3770K & 16GB 1333MHz & GeForce GTX 1050 Ti 4GB & Win 10\\
+            PC6 & K. stacjonarny & i7-3770K & 16GB 1333MHz & GeForce GTX 1050 Ti 4GB \\
             \hline
-            PC7 & K. stacjonarny & i5 4460 & 16GB 1600MHz & Radeon RX6600 8GB & Win 10\\
+            PC7 & K. stacjonarny & i5 4460 & 16GB 1600MHz & Radeon RX6600 8GB \\
             \hline
 
         \end{tabular}	
@@ -869,7 +1041,7 @@ podczas rozstawiania modeli w silniku. Średnia liczba klatek mieściła się w
 przedziale <17.77, 34.25>. Średnia liczba klatek była najniższa w komputerze z
 najsłabszym procesorem, a najwyższa w przypadku PC4. Odchylenie standardowe
 liczby klatek na sekundę mieściło się w przedziale od <3.15, 4.75>, co świadczy
-o sporym odchyleniu od wartości średniej. Średnia najgorszego 1\% i 0.1\% klatek
+o sporym odchyleniu od wartości średniej. Najgorsze 1\% i 0.1\% klatek
 na sekundę odbiega od wartości średniej o ponad 10 FPS w prawie wszystkich
 przypadkach co świadczy o dużych fluktuacjach w prędkości wyświetlanego obrazu.
 Wymagany minimalny czas pracy procesora nie przekraczał 42 milisekund.
@@ -885,15 +1057,13 @@ minimalnego, maksymalnego oraz średniego czasu użycia zostały odnotowane dla
 komputera PC6. Najniższy średni i maksymalny czas pracy został odnotowany dla
 komputera pc4, a najniższy średni czas pracy został odnotowany dla komputera
 pc2, co świadczy o tym, że komputer z szybszym procesorem średnio używał mniej
-czasu karty graficznej, niż komputer z szybszą kartą graficzną. Takie zjawisko
-może być skorelowane z przesyłaniem danych z procesora do karty graficznej.
-Ostatnimi wartościami w tabelach są minimalne, maksymalne i średnie użycie
-pamięci VRAM karty graficznej. W teście średnio używano ok 2400MB pamięci VRAM z
-małymi odchyleniami w zależności od komputera i podobne zjawisko zachodzi w
-przypadku wartości maksymalnych, które nie odbiegają znacząco od wartości
-średnich. Minimalne użycie pamięci VRAM jest podobne dla wszystkich komputerów
-poza pc7, który używał ok. 700MB pamięci więcej. 
-
+czasu karty graficznej, niż komputer z szybszą kartą graficzną. Ostatnimi
+wartościami w tabelach są minimalne, maksymalne i średnie użycie pamięci VRAM
+karty graficznej. W teście średnio używano ok 2400MB pamięci VRAM z małymi
+odchyleniami w zależności od komputera i podobne zjawisko zachodzi w przypadku
+wartości maksymalnych, które nie odbiegają znacząco od wartości średnich.
+Minimalne użycie pamięci VRAM jest podobne dla wszystkich komputerów poza pc7,
+który używał ok. 700MB pamięci więcej. 
 Podsumowując użycie zasobów różnych komputerów można dojść do następujących
 wniosków:
 \begin{itemize}
@@ -915,11 +1085,7 @@ mocy obliczeniowej procesora i karty graficznej. Wartości maksymalne są mocno
 zbliżone do wartości średnich. 
 \end{itemize}
 
-
-
-
-
-\begin{table}[ht]
+\begin{table}[h]
     \caption{Dane statystyczne zebrane z komputerów w Unity cz.1}
     \centering		
         \begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1cm}|}	
@@ -944,7 +1110,7 @@ zbliżone do wartości średnich.
     \label{Tabela:StatystykiUnity1}
 \end{table}	
 
-\begin{table}[ht]
+\begin{table}[h]
         \caption{Dane statystyczne zebrane z komputerów w Unity cz.2}
         \centering		
         \begin{tabular}{|p{1cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}	
@@ -971,7 +1137,7 @@ zbliżone do wartości średnich.
         \end{tabular}	
     \label{Tabela:StatystykiUnity2}
 \end{table}	
-\newpage
+
 
 Tabele \ref{Tabela:StatystykiUnreal1} i \ref{Tabela:StatystykiUnreal2}
 przedstawiają statystyki opracowane na bazie danych zebranych podczas testów
@@ -1009,26 +1175,8 @@ jednostek i oscyluje odpowiednio między wartościami <756,1375>MB i <1024,
 1932>MB. Minimalne użycie pamięci VRAM było równe dla wszystkich komputerów i
 wynosiło 0.02MB. Ta wartość została odnotowana w czasie ładowania poziomu. 
 
-Po analizie danych statystycznych na temat użycia zasobów przez silnik Unreal
-Enigne można dojść do następujących wniosków:
-\begin{itemize}
-\item Na działanie programów w silniku Unreal Engine mogą mieć wpływ inne
-czynniki niż moc obliczeniowa karty graficznej czy procesora
-\item Stabilność generowania klatek jest zależna od mocy procesora i karty
-graficznej.
-\item Unreal wykorzystuje w teście więcej mocy obliczeniowej karty graficznej
-niż mocy procesora. 
-\item Ilość używanej pamięci RAM i VRAM przez program nie jest równa dla
-wszystkich komputerów na których wykonano testy. Różnice wyniosły 400MB w
-przypadku pamięci RAM i ok. 900MB w przypadku VRAM’u.
-\item W trakcie ładowania poziomu silnik nie wykorzystuje karty graficznej. 
-\item W przypadku komputera z systemem Windows 11 został odnotowany słabszy
-wynik, co może być powiązane z różnicami między systemami Windows 10 i Windows
-11. 
-\end{itemize}
 
-
-\begin{table}[ht]
+\begin{table}[H]
     \caption{Dane statystyczne zebrane z komputerów w Unreal Engine cz.1}
     \centering		
         \begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1cm}|}	
@@ -1054,7 +1202,25 @@ wynik, co może być powiązane z różnicami między systemami Windows 10 i Win
     \label{Tabela:StatystykiUnreal1}
     \end{table}	
 
-\begin{table}[ht]
+Po analizie danych statystycznych na temat użycia zasobów przez silnik Unreal
+Enigne można dojść do następujących wniosków:
+\begin{itemize}
+\item Na działanie programów w silniku Unreal Engine mogą mieć wpływ inne
+czynniki niż moc obliczeniowa karty graficznej czy procesora
+\item Stabilność generowania klatek jest zależna od mocy procesora i karty
+graficznej.
+\item Unreal wykorzystuje w teście więcej mocy obliczeniowej karty graficznej
+niż mocy procesora. 
+\item Ilość używanej pamięci RAM i VRAM przez program nie jest równa dla
+wszystkich komputerów na których wykonano testy. Różnice wyniosły 400MB w
+przypadku pamięci RAM i ok. 900MB w przypadku VRAM’u.
+\item W trakcie ładowania poziomu silnik nie wykorzystuje karty graficznej. 
+\item W przypadku komputera z systemem Windows 11 został odnotowany słabszy
+wynik, co może być powiązane z różnicami między systemami Windows 10 i Windows
+11. 
+
+\end{itemize}
+\begin{table}[H]
     \caption{Dane statystyczne zebrane z komputerów w Unreal Engine cz.2}
     \centering		
         \begin{tabular}{|p{1cm}|p{1,1cm}|p{1,4cm}|p{1,4cm}|p{1cm}|p{1,3cm}|p{1cm}|p{1cm}|p{1,5cm}|p{1,5cm}|}	
@@ -1080,16 +1246,20 @@ wynik, co może być powiązane z różnicami między systemami Windows 10 i Win
         \end{tabular}	
 \label{Tabela:StatystykiUnreal2}
 \end{table}	
-\clearpage
+
 
 Rysunki
-\ref{Fig:PC1Tests}, \ref{Fig:PC2Tests}, \ref{Fig:PC3Tests}, \ref{Fig:PC4Tests}, \ref{Fig:PC5Tests}, \ref{Fig:PC6Tests}, \ref{Fig:PC7Tests}
-przedstawiają wykresy klatek na sekundę od czasu przebiegu testów dla różnych
-komputerów. Na wykresach kolorem niebieskim oznaczono dane zebrane w czasie
-testu silnika unity, a na pomarańczowo dla silnika Unreal Engine. Wykresy
-zostały ograniczone do 3000 sekund trwania testu. Wykres dla silnika Unreal
-Enigne został przesunięty ze względu na działanie narzędzia, które zapisuje
-czas. 
+\ref{Fig:PC1Tests}, \ref{Fig:PC2Tests}, \ref{Fig:PC3Tests}, \ref{Fig:PC4Tests},
+\ref{Fig:PC5Tests}, \ref{Fig:PC6Tests}, \ref{Fig:PC7Tests} przedstawiają wykresy
+klatek na sekundę od czasu przebiegu testów dla różnych komputerów. Na wykresach
+kolorem niebieskim oznaczono dane zebrane w czasie testu silnika unity, a na
+pomarańczowo dla silnika Unreal Engine. Wykresy zostały ograniczone do 1800
+sekund trwania testu. Czas trwania testów nie był stały. W przypadku Unity dla
+większości przypadków test trwał ok. 30 minuy, poza jednym przypadkiem pc4, na
+którym test trwał ok. 50 minut. Dla silnika Unreal Engine długość testu zależała
+od średniej liczby klatek. W najgorszym przypadku test trwał ok. 2 godziny.
+Zadziałał tutaj mechanizm, który spowalnia upływ czasy w świecie silnika i
+spowolnienie jest zależne od szybkości wyświetlania obrazu. 
 
 Wszystkie wykresy dla testów silnika Unity posiadają dolinę w podobnym miescu
 trwania testu, która znajduje się parędziesiąt sekund od zaczęcia testu i trwa
@@ -1106,7 +1276,7 @@ na niektórych spadki wynoszą nawet 20 klatek na sekundę.
 
 Wszystkie wykresy dla silnika Unreal Engine posiadają dolinę kilkadziesiąt
 sekund od rozpoczęcia testu, jednak nie jest ona tak głęboka jak w przypadku
-testów wykonanych na silniku Unity. Dolina ta jest głęboka na ok. 2 lub 3 FPS.
+testów wykonanych na silniku Unity. Dolina ta jest głęboka na ok. (2,5) FPS.
 Jedynymi wyjątkami są pc6 \ref{Fig:PC6Tests} i pc3 \ref{Fig:PC3Tests}. Długość
 doliny jest zależna od sprzętu na którym został wykonany test. Początek wykresu
 zaczyna się wartością bliską 0. Fluktuacje na wykresach są niewielkie i poza
@@ -1117,9 +1287,15 @@ dłużej.
 Liczba FPS w teście silnika Unity była znacząco wyższa niż silnika Unreal
 Enigne, ale też z dużo większymi fluktuacjami. Silnik Unreal Engine był bardzo
 stabilny z niewielkimi odchyleniami do średniej. W wykresach obu testów ukazały
-się pewne błędu lub niedociągnięcia silników w początkowych fazach testów.  
+się pewne błędu lub niedociągnięcia silników w początkowych fazach testów.
+Występowanie dolin w podobnych miejscach testu pokazuje podobieństwo w
+silnikach. Silniki w podobnym czasie testu natrafiają na problematyczną część,
+która sprawia, że wymagana jest większa liczba obliczeń. W silniku Unreal doliny
+zostały rozciągnięte przez wspomniany mechanizm, ale były one bardziej płaskie. 
 
-\begin{figure}[ht]
+
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=16cm]{figures/FPSPlots/pc1searchedDataName.png}
     \caption{Liczba klatek na sekundę generowana dla testów przeprowadzonych na PC1}
@@ -1172,7 +1348,77 @@ się pewne błędu lub niedociągnięcia silników w początkowych fazach testó
 
 
 \clearpage
+
+
 \section{Podsumowanie i wnioski}
+
+Silniki graficzne wywodząc się z środowiska gier komputerowych i branży filmowej
+ugruntowały swoją pozycję w świecie. Gry i filmy stały się ważnym elementem
+kultury już w latach 2000, a wraz z biegiem czasu coraz bardziej zyskiwały na
+znaczeniu.  W dzisiejszych czasach największe branża gier i filmów korzystają z
+różnych silników graficznych zagnieżdżonych w różnych programach. Silniki
+graficzne zostały znacząco rozwinięte i pozwalają na tworzenie niezwykle
+realistycznych efektów wizualnych.
+
+Silniku Unity i Unreal Engine są jednymi z najbardziej popularniejszych
+komercyjnych silników graficznych używanych w produkcji gier. Oba silniki
+posiadają swoje wady i zalety. Unity jest silnikiem prostym i przez użycie
+języka C\# do tworzenia skryptów bardziej przystępny dla początkujących twórców
+gier. Unreal Enigne używając kombinacji blueprint’ów i języka c$++$ pozwala na
+płynne tworzenie i optymalizowanie funkcjonalności gier. Oba silniki znacząco
+różnią się pod względem podstawowej infrastruktury oraz skalowalności silnika.
+Silnik Unity pozwala na stworzenie demonstracyjnej wersji gry bardzo szybko, ale
+wymaga więcej pracy i wiedzy przy ambitnych projektach. Unreal Enigne wymaga
+sporo pracy w początkowej fazie tworzenia gry, ale wraz z jej rozwojem wbudowane
+elementy przyśpieszają proces. 
+
+Przeprowadzone testy zostały ograniczone do jednej części silnika graficznego
+jakim jest rendering dynamicznie rozstawionych obiektów. Oba silniki były
+testowane w swojej podstawowej formie. W silniku Unreal Engine został wyłączony
+system Lumen, który jest zaawansowaną techniką oświetlenia, która jest
+wielokrotnie bardziej skomplikowana niż model oświetlenia silnika Unity. Test
+polegał na rozstawieniu 4000 tysięcy modeli wraz z animacjami w przestrzeni i
+przejściu przez kamerę pewnej wcześniej ustalonej ścieżki. Rozstawienie modeli
+zostało wcześniej ustalone i zapisane w pliku. Programy musiały odczytać
+rozstawienie i rozstawić modele. Dane były zbierane przez narzędzia wbudowane w
+silniki i zapisywane przez skrypt silnika. Programy testowe zbudowane z silników
+zostały uruchomione na 7 komputerach z różną specyfikacją. Jako obiekty zostały
+użyte modele wraz z zestawem animacji szkieletowych. 
+
+Wyniki testów można przedstawić następująco:
+\begin{itemize}
+\item Silnik Unity używał maksymalnie ok. 770MB pamięci RAM i ok. 2500MB pamięci
+karty graficznej oraz te wartości minimalnie się zmieniały dla komputerów.
+Unreal Enigne używał więcej pamięci RAM o ok. 400MB i mniej pamięci VRAM o ok.
+900MB i ilość używanej pamięci była zależna od specyfikacji komputera. 
+
+\item Unity wymaga więcej mocy obliczeniowej procesora, ale moc karty graficznej
+również ma wpływ na szybkość generowania klatek. 
+
+\item Generacja obrazu była stabilniejsza przy pomocy Unlreal Engine’a, niż w
+przypadku Unity. Testy silnika Unreal wykazały mniejszą ilość fluktuacji oraz mniejszą ich siłę. Silniki miały problem w podobnym momencie testów, co miało
+swoje odzwierciedlenie w wykresach liczby klatek od czasu. 
+
+
+\item Unreal Engine wymaga większej mocy obliczeniowej karty graficznej, ale moc
+procesora również ma pewien wpływ na przebieg testu.
+
+\item System Windows 11 może mieć większy wpływ na przebieg testu niż system
+Windows 10, ale należy to sprawdzić na komputerach z takimi samymi podzespołami. 
+
+\item Silniki Unreal Enigne nie wykorzystuje karty graficznej podczas ładowania
+poziomu i rozstawiania modeli. Takie zjawisko nie zachodzi przy działaniu
+silnika Unity. 
+
+\item Czas trwania testów w silniku Unreal był dłuższy i był zależny od mocy
+obliczeniowej komputera, w najgorszym przypadku test trwał ponad 2 godziny. W
+przypadku silnika Unity test trwał podobną ilość czasu równą ok. 30 minut poza
+jednym przypadkiem, gdzie test skończył się po 50 minutach. 
+
+
+\end{itemize} 
+
+
 
 \clearpage
 
@@ -1189,14 +1435,48 @@ się pewne błędu lub niedociągnięcia silników w początkowych fazach testó
 \bibitem{GameEngineArchitecture} Jason Gregory: Game Engine Architecture, CRC Press 2019
 \bibitem{GameDevelpomenPhysics} David M. Bourg, Bryan Bywalec: Physics for Game Development, O\'Reilly 2013
 
-\bibitem{Unity:Architecture} https://docs.unity3d.com/Manual/CreatingGameplay.html Dostęp \today
-\bibitem{Unity:Flowchart} https://docs.unity3d.com/Manual/ExecutionOrder.html Dostęp \today
+\bibitem{Blender:EEVEE} \url{https://docs.blender.org/manual/en/latest/render/eevee/introduction.html} Dostęp \today
+\bibitem{Blender:Cycles} \url{https://docs.blender.org/manual/en/2.80/render/cycles/introduction.html} Dostęp \today
+\bibitem{Blender:Workbench} \url{https://docs.blender.org/manual/en/3.3/render/workbench/introduction.html} Dostęp \today
 
-\bibitem{UnrealEngineArchitecture} https://docs.unrealengine.com/4.26/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/ Dostęp: \today
-\bibitem{UE:ActorLifeCycleSource} https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/ActorLifecycle/ Dostęp: \today
-\bibitem{UE:TickingActor} https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Ticking/ Dostęp \today
 
-\bibitem{SteamSurvey} https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam Dostęp: \today
+
+\bibitem{Unity:Documentatnion} \url{https://docs.unity.com/} Dostęp \today
+\bibitem{Unity:DonSaveOnLoad} \url{https://docs.unity3d.com/ScriptReference/Object.DontDestroyOnLoad.html} Dostęp \today
+\bibitem{Unity:Scena} \url{https://docs.unity3d.com/Manual/CreatingScenes.html} Dostęp \today
+\bibitem{Unity:Obiekt} \url{https://docs.unity3d.com/Manual/GameObjects.html} Dostęp \today
+
+\bibitem{Unity:Awake} \url{https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html} Dostęp \today
+\bibitem{Unity:StateChangeExit} \url{https://docs.unity3d.com/ScriptReference/StateMachineBehaviour.OnStateMachineExit.html} Dostęp \today
+\bibitem{Unity:StateChangeEnter} \url{https://docs.unity3d.com/ScriptReference/StateMachineBehaviour.OnStateMachineEnter.html} Dostęp \today
+
+\bibitem{Unity:yield} \url{https://docs.unity3d.com/ScriptReference/YieldInstruction.html} Dostęp \today
+\bibitem{Unity:ONAnimationIK} \url{https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnAnimatorIK.html} Dostęp \today
+\bibitem{Unity:onCurl} \url{https://docs.unity3d.com/ScriptReference/Camera.OnPreCull.html} Dostęp \today
+\bibitem{Unity:OnPreRender} \url{https://docs.unity3d.com/ScriptReference/Camera.OnPreRender.html} Dostęp \today
+\bibitem{Unity:OnPostRender} \url{https://docs.unity3d.com/ScriptReference/Camera.OnPostRender.html} Dostęp \today
+
+\bibitem{Unity:Flowchart} \url{https://docs.unity3d.com/Manual/ExecutionOrder.html} Dostęp \today
+
+\bibitem{UE:Documentatnion} \url{https://docs.unrealengine.com/4.27/en-US/} Dostęp \today
+\bibitem{UnrealEngineArchitecture} \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-framework-in-unreal-engine?application_version=5.4} Dostęp: \today
+
+\bibitem{UE:GameInstance} \url{https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/Engine/UGameInstance/} Dostęp \today
+\bibitem{UE:GameModeState}  \url{https://dev.epicgames.com/documentation/en-us/unreal-engine/game-mode-and-game-state-in-unreal-engine} Dostęp \today
+\bibitem{UE:LevelScriptActor}  \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Blueprints/UserGuide/Types/LevelBlueprint/} Dostęp \today
+\bibitem{UE:Controller}  \url{https://docs.unrealengine.com/4.26/en-US/InteractiveExperiences/Framework/Controller/} Dostęp \today
+\bibitem{UE:Actor}  \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/} Dostęp \today
+\bibitem{UE:Pawn}  \url{https://docs.unrealengine.com/4.26/en-US/InteractiveExperiences/Framework/Pawn/} Dostęp \today
+\bibitem{UE:Character}  \url{https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Framework/Pawn/Character/} Dostęp \today
+\bibitem{UE:Component}  \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Components/} Dostęp \today
+
+\bibitem{UE:ActorLifeCycleSource} \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/ActorLifecycle/} Dostęp: \today
+\bibitem{UE:TickingActor} \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/Ticking/} Dostęp \today
+
+
+\bibitem{SteamSurvey} \url{https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam} Dostęp: \today
+\bibitem{RHISource} \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Rendering/ParallelRendering/} Dostęp \today
+\bibitem{ModelSource} Kacper Rudź, Sławomir Samolej, Gra platformowa 3D, Politechnika Rzeszowska \url{https://github.com/szczerrzuja/ProjektIn-ynierski-KacperRudz}
 
 \end{thebibliography}
 
