@@ -165,9 +165,7 @@ testu zostały zebrane informacje o ilości klatek na sekundę,
 zapotrzebowaniu na pamięć RAM oraz pamięci VRAM karty graficznej i ile czasu w danej klatce
 aplikacja używała procesora i procesora graficznego. Dane zostały zebrane z
 kilku różnych komputerów -- komputery osobiste i laptopy -- o różnych
-specyfikacjach, a następnie dane zostały przeanalizowane. Analizowane dane
-zostały ocenione pod względem różnych kryteriów.
-
+specyfikacjach, a następnie dane zostały przeanalizowane. 
 
 
 \clearpage
@@ -862,7 +860,9 @@ do osiągnięcia ostatniego punktu, co spowoduje wyłącznie się testu. Po
 osiągnięciu każdego następnego punktu kamera zmienia rotację. Kamera może być
 ustawiona tak, aby patrzeć się w kierunku jakiegoś punktu. W końcowych fazach
 testu kamera jest ‘teleportowana’ po czym przez krótki czas rusza się do przodu
-ruchem jednostajnym. Ważne aby skrypty w silnikach działały w podobny sposób. 
+ruchem jednostajnym. Ważne aby skrypty w silnikach działały w podobny sposób.
+Projekty zostały zbudowane i testy zostały przeprowadzone na zbudowanych
+projektach. 
 
 
 \subsection{Przygotowanie testu Unity}
@@ -1418,13 +1418,26 @@ jednym przypadkiem, gdzie test skończył się po 50 minutach.
 
 \end{itemize} 
 
+Autor za wkład własny uważa:
+\begin{itemize}
+\item Opis infrastruktury silników Unity i Unreal Engine
+\item Wskazanie różnic między silnikami
+\item Opisanie zasad testów 
+\item Stworzenie testów na obu silnikach
+\item Przeprowadzenie testów
+\item Analiza i wyciągnięcie wniosków na bazie zebranych danych
+\end{itemize}
 
 
 \clearpage
 
 \section*{Załączniki}
 \addcontentsline{toc}{section}{Załączniki}
-
+\begin{itemize}
+    \item  pliki projektów użytych do zbudowania programów testowych
+    \item zebrane dane wraz ze specyfikacją używanych komputerów
+    
+\end{itemize}
 
 
 \clearpage
@@ -1475,7 +1488,6 @@ jednym przypadkiem, gdzie test skończył się po 50 minutach.
 
 
 \bibitem{SteamSurvey} \url{https://store.steampowered.com/hwsurvey/Steam-Hardware-Software-Survey-Welcome-to-Steam} Dostęp: \today
-\bibitem{RHISource} \url{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Rendering/ParallelRendering/} Dostęp \today
 \bibitem{ModelSource} Kacper Rudź, Sławomir Samolej, Gra platformowa 3D, Politechnika Rzeszowska \url{https://github.com/szczerrzuja/ProjektIn-ynierski-KacperRudz}
 
 \end{thebibliography}
