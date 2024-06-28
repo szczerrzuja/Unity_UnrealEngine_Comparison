@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.2)  22 JUN 2024 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.2)  22 JUN 2024 21:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3096,6 +3096,2198 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.992 \clearpage
-                 <./figures/UnrealTestScreen.png>
-!pdfTeX error: pdflatex.exe: fflush() failed (Invalid argument)
- ==> Fatal error occurred, no output PDF file produced!
+                 <./figures/UnrealTestScreen.png>]
+Overfull \hbox (18.67113pt too wide) in paragraph at lines 1008--1029
+ [][] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1070.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1070.
+
+[35
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1070 \item
+             Test unity dziaÅ‚aÅ‚ lepiej na PC4 osiÄ…gajÄ…c Å›rednio 34.25 k...]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1086.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1086.
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Std
+ []
+
+
+Overfull \hbox (2.28844pt too wide) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Worst
+ []
+
+
+Overfull \hbox (2.28844pt too wide) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Worst
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1094
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1094
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 VRA-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 MU-sage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 VRA-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
+\T1/lmr/m/n/12 MU-sage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+\T1/lmr/m/n/12 VRA-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+\T1/lmr/m/n/12 MU-sage
+ []
+
+
+Overfull \hbox (4.18617pt too wide) in paragraph at lines 1130--1130
+[]\T1/lmr/m/n/12 100.53| 
+ []
+
+
+Overfull \hbox (31.7966pt too wide) in paragraph at lines 1116--1139
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1177.
+
+[37
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1177 
+       ]
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Std
+ []
+
+
+Overfull \hbox (2.28844pt too wide) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Worst
+ []
+
+
+Overfull \hbox (2.28844pt too wide) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Worst
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+\T1/lmr/m/n/12 CPU
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1204.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1204.
+
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1204 
+       ]
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 RA-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 MU-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 sage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 GPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Min
+ []
+
+
+Overfull \hbox (8.57726pt too wide) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 VRAM
+ []
+
+
+Overfull \hbox (1.96188pt too wide) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+[]\T1/lmr/m/n/12 Max
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 VRAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1228
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
+[]\T1/lmr/m/n/12 Avg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
+\T1/lmr/m/n/12 VRAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
+\T1/lmr/m/n/12 Usage
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1230--1230
+[]\T1/lmr/m/n/12 891.84| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1232--1232
+[]\T1/lmr/m/n/12 895.72| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1234--1234
+[]\T1/lmr/m/n/12 967.32| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1236--1236
+[]\T1/lmr/m/n/12 914.39| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1238--1238
+[]\T1/lmr/m/n/12 868.34| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1240--1240
+[]\T1/lmr/m/n/12 870.37| 
+ []
+
+
+Overfull \hbox (1.52524pt too wide) in paragraph at lines 1240--1240
+[]\T1/lmr/m/n/12 1408.78| 
+ []
+
+
+Overfull \hbox (4.18617pt too wide) in paragraph at lines 1240--1240
+[]\T1/lmr/m/n/12 127.18| 
+ []
+
+
+Overfull \hbox (1.34071pt too wide) in paragraph at lines 1242--1242
+[]\T1/lmr/m/n/12 820.81| 
+ []
+
+
+Overfull \hbox (26.10571pt too wide) in paragraph at lines 1226--1248
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1249.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1249.
+
+[39
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1249 
+       ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1276.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1276.
+
+[40
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1276 
+       ]
+<figures/FPSPlots/pc1searchedDataName.png, id=373, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc1searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc1searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc1searchedDataName.png  used on input line 1300.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1300--1301
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/FPSPlots/pc2searchedDataName.png, id=374, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc2searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc2searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc2searchedDataName.png  used on input line 1307.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1307--1308
+ [][] 
+ []
+
+<figures/FPSPlots/pc3searchedDataName.png, id=375, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc3searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc3searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc3searchedDataName.png  used on input line 1314.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1314--1315
+ [][] 
+ []
+
+<figures/FPSPlots/pc4searchedDataName.png, id=376, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc4searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc4searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc4searchedDataName.png  used on input line 1321.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1321--1322
+ [][] 
+ []
+
+<figures/FPSPlots/pc5searchedDataName.png, id=377, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc5searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc5searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc5searchedDataName.png  used on input line 1328.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1328--1329
+ [][] 
+ []
+
+<figures/FPSPlots/pc6searchedDataName.png, id=378, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc6searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc6searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc6searchedDataName.png  used on input line 1334.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1334--1335
+ [][] 
+ []
+
+<figures/FPSPlots/pc7searchedDataName.png, id=379, 462.528pt x 346.896pt>
+File: figures/FPSPlots/pc7searchedDataName.png Graphic file (type png)
+<use figures/FPSPlots/pc7searchedDataName.png>
+Package pdftex.def Info: figures/FPSPlots/pc7searchedDataName.png  used on input line 1341.
+(pdftex.def)             Requested size: 455.24408pt x 341.44843pt.
+
+Overfull \hbox (14.22635pt too wide) in paragraph at lines 1341--1342
+ [][] 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[41]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[42
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc1searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[43
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc2searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[44
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc3searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[45
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc4searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[46
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc5searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[47
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc6searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1350.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1350.
+
+[48
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1350 \clearpage
+                  <./figures/FPSPlots/pc7searchedDataName.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1395.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1395.
+
+[49
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1432.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1432.
+
+[50]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1443.
+
+[51
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1451.
+ (y:/StudiaPRog/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1451--1452
+[][]$\T1/lmtt/m/n/12 https : / / docs . blender . org / manual / en / latest / render / eevee / introduction .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
+[][]$\T1/lmtt/m/n/12 https : / / docs . blender . org / manual / en / 2 . 80 / render / cycles / introduction .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1454
+[][]$\T1/lmtt/m/n/12 https : / / docs . blender . org / manual / en / 3 . 3 / render / workbench /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1458--1459
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / Object . DontDestroyOnLoad .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1462--1463
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / MonoBehaviour . Awake . html$[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1463--1464
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / StateMachineBehaviour .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / StateMachineBehaviour .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1466--1467
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / YieldInstruction . html$[] \T1/lmr/m/n/12 Do-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1467--1468
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / MonoBehaviour .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1468--1469
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / Camera . OnPreCull . html$[] \T1/lmr/m/n/12 Do-
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1470.
+
+[52
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1470--1471
+[][]$\T1/lmtt/m/n/12 https : / / docs . unity3d . com / ScriptReference / Camera . OnPostRender . html$[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1476
+[][]$\T1/lmtt/m/n/12 https : / / dev . epicgames . com / documentation / en -[] us / unreal -[] engine /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1476
+\T1/lmtt/m/n/12 gameplay -[] framework -[] in -[] unreal -[] engine ? application _ version = 5 . 4$[] \T1/lmr/m/n/12 Do-st¦p:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / API / Runtime / Engine / Engine /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1479
+[][]$\T1/lmtt/m/n/12 https : / / dev . epicgames . com / documentation / en -[] us / unreal -[] engine / game -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1480
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / ProgrammingAndScripting /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 26 / en -[] US / InteractiveExperiences /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / ProgrammingAndScripting /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1483
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 26 / en -[] US / InteractiveExperiences /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1483--1484
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / InteractiveExperiences /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1485
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / ProgrammingAndScripting /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1485
+\T1/lmtt/m/n/12 ProgrammingWithCPP / UnrealArchitecture / Actors / Components/$[] \T1/lmr/m/n/12 Do-st¦p
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1486.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1486.
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 1486--1487
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / ProgrammingAndScripting /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1486--1487
+\T1/lmtt/m/n/12 ProgrammingWithCPP / UnrealArchitecture / Actors / ActorLifecycle/$[] \T1/lmr/m/n/12 Do-st¦p:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1487--1488
+[][]$\T1/lmtt/m/n/12 https : / / docs . unrealengine . com / 4 . 27 / en -[] US / ProgrammingAndScripting /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1491
+[][]$\T1/lmtt/m/n/12 https : / / store . steampowered . com / hwsurvey / Steam -[] Hardware -[] Software -[]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1495.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1495.
+
+[54]
+Overfull \hbox (14.2264pt too wide) in paragraph at lines 1497--1497
+[][]| 
+ []
+
+
+Overfull \hbox (14.2264pt too wide) in paragraph at lines 1497--1497
+[][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1497--1497
+[][]
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@currsize' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayshortskip' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayshortskip' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\p@' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@listi' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\belowdisplayskip' on input line 1499.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\abovedisplayskip' on input line 1499.
+
+[55] (./weiiszablon.aux)
+Package rerunfilecheck Info: File `weiiszablon.out' has not changed.
+(rerunfilecheck)             Checksum: 2AA191014FBF5FA6E1E321B15B3EBBA0;2557.
+ ) 
+Here is how much of TeX's memory you used:
+ 14393 strings out of 474971
+ 230448 string characters out of 5774632
+ 624556 words of memory out of 5000000
+ 35534 multiletter control sequences out of 15000+600000
+ 511869 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 72i,13n,77p,757b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{y:/StudiaPRog/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{y:/StudiaPRog/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}<y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb><y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb><y:/StudiaPRog/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on weiiszablon.pdf (55 pages, 3275079 bytes).
+PDF statistics:
+ 562 PDF objects out of 1000 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+
