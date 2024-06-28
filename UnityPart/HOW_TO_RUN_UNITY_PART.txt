@@ -1,0 +1,6 @@
+Folow those steps:
+1. make sure, you have unity engine in version 2022.3.16.f1
+2. Run unity hub
+3. Add this project 
+4. Run project
+5. Open scene named Sample scene in \Assets\scenes
