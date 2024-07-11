@@ -5,3 +5,4 @@ To run project you need:
 To launch project:
 1. DoubleClick UnrealPart.uproject
 2. Window will popup with question to rebuild from source, click YES
+3. I will take a while, wiat
